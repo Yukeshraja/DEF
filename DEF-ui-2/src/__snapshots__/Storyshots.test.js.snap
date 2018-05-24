@@ -1,0 +1,321 @@
+exports[`Storyshots Checkbox with default 1`] = `
+<div>
+  <label>
+    <input
+      checked={false}
+      name="Varenya"
+      onChange={[Function]}
+      title="hello"
+      type="checkbox" />
+    Varenya
+  </label>
+  <label>
+    <input
+      checked={false}
+      name="John"
+      onChange={[Function]}
+      title="hello"
+      type="checkbox" />
+    John
+  </label>
+</div>
+`;
+
+exports[`Storyshots DropDown with default 1`] = `
+<div>
+  Loading..
+</div>
+`;
+
+exports[`Storyshots Footer with default 1`] = `
+<footer
+  className="footer_style"
+  style={undefined}>
+  <section
+    className="copyright">
+    Copyright (c) 2017-2018 Altimetrik, Pvt Ltd
+  </section>
+</footer>
+`;
+
+exports[`Storyshots Header with default 1`] = `
+<header
+  className="container group"
+  style={undefined}>
+  <a
+    className="app"
+    href="#">
+    <img
+      alt="App Logo"
+      className="app-logo"
+      src="logo.svg" />
+    App Name
+  </a>
+</header>
+`;
+
+exports[`Storyshots Menu with default 1`] = `
+<div
+  className="menu"
+  style={undefined}>
+  <h2
+    className="menu_heading">
+    Alti Menu
+  </h2>
+  <ul
+    className="menu_items">
+    <li>
+      <a
+        href="#"
+        onClick={[Function]}>
+        Basic
+      </a>
+    </li>
+    <li>
+      <a
+        href="#"
+        onClick={[Function]}>
+        Advanced
+      </a>
+    </li>
+    <li>
+      <a
+        href="#"
+        onClick={[Function]}>
+        Tutorial
+      </a>
+    </li>
+    <li>
+      <a
+        href="#"
+        onClick={[Function]}>
+        Examples
+      </a>
+    </li>
+    <li>
+      <a
+        href="#"
+        onClick={[Function]}>
+        Demo
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`Storyshots Radio with default 1`] = `
+<div
+  className="radio_group">
+  <label>
+     
+    <input
+      checked={false}
+      name="sample"
+      onChange={[Function]}
+      type="radio"
+      value="test" />
+    Sample
+     
+  </label>
+</div>
+`;
+
+exports[`Storyshots Radio with name and values props 1`] = `
+<div
+  className="radio_group">
+  <label>
+     
+    <input
+      checked={false}
+      name="test"
+      onChange={[Function]}
+      type="radio"
+      value="value1" />
+    Test1
+     
+  </label>
+  <label>
+     
+    <input
+      checked={false}
+      name="test"
+      onChange={[Function]}
+      type="radio"
+      value="value2" />
+    Test2
+     
+  </label>
+</div>
+`;
+
+exports[`Storyshots Slider with default 1`] = `
+<div
+  className="slider">
+  <span
+    className="left-arrow"
+    onClick={[Function]} />
+  <div
+    className="slide-frame"
+    style={
+      Object {
+        "margin": "0 auto",
+        "overflow": "hidden",
+        "width": "600px",
+      }
+    }>
+    <div
+      className="slider-display"
+      style={
+        Object {
+          "position": "relative",
+          "transform": "translate3d(0px,0,0)",
+          "width": 1800,
+        }
+      }>
+      <a
+        className=""
+        href="#"
+        style={
+          Object {
+            "width": "600px",
+          }
+        }>
+        <img
+          alt="Slider"
+          src="test.jpg" />
+      </a>
+      <a
+        className=""
+        href="#"
+        style={
+          Object {
+            "width": "600px",
+          }
+        }>
+        <img
+          alt="Slider"
+          src="test1.jpg" />
+      </a>
+      <a
+        className=""
+        href="#"
+        style={
+          Object {
+            "width": "600px",
+          }
+        }>
+        <img
+          alt="Slider"
+          src="test2.jpg" />
+      </a>
+    </div>
+    <ol
+      className="slider-indicators">
+      <li
+        className="active"
+        onClick={[Function]} />
+      <li
+        className=""
+        onClick={[Function]} />
+      <li
+        className=""
+        onClick={[Function]} />
+    </ol>
+  </div>
+  <span
+    className="right-arrow"
+    onClick={[Function]} />
+</div>
+`;
+
+exports[`Storyshots Table with default 1`] = `
+<table
+  className="table_custom">
+  <thead>
+    <tr>
+      <th>
+        name
+      </th>
+      <th>
+        company
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        Varenya
+      </td>
+      <td>
+        Altimetrik
+      </td>
+    </tr>
+    <tr>
+      <td>
+        John
+      </td>
+      <td>
+        Doe
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`Storyshots TextArea with default 1`] = `
+<div
+  className="input_textarea">
+  <textarea
+    className=" textbox"
+    name="sample"
+    onChange={[Function]}
+    style={
+      Object {
+        "height": "200px",
+      }
+    } />
+</div>
+`;
+
+exports[`Storyshots TextField with default 1`] = `
+<div
+  className="input_field">
+  <label>
+    <input
+      className=" textfield"
+      name="test"
+      onChange={[Function]}
+      type="text"
+      value={undefined} />
+  </label>
+</div>
+`;
+
+exports[`Storyshots TextField with error 1`] = `
+<div
+  className="input_field">
+  <label>
+    <input
+      className=" textfield error_input"
+      name="test"
+      onChange={[Function]}
+      type="text"
+      value={undefined} />
+  </label>
+</div>
+`;
+
+exports[`Storyshots TextField with label 1`] = `
+<div
+  className="input_field">
+  <label>
+    First Name
+    <input
+      className=" textfield"
+      name="test"
+      onChange={[Function]}
+      type="text"
+      value={undefined} />
+  </label>
+</div>
+`;

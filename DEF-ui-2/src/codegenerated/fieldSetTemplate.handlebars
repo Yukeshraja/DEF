@@ -1,0 +1,21 @@
+import React from 'react';
+import { FieldGroupUI } from '../components/field/fieldset';
+import { fetchData } from '../components/HOC/fetchData';
+
+{{#each fields}}
+const {{compName}} = (props) => ({{{fieldComp}}});
+{{/each}}
+
+const Main = (props) => (
+        <div>
+          {{#each fields}}
+             <{{compName}} fieldSetData={props.fieldSetData}/>
+          {{/each}}
+        </div>
+)
+
+const Enhance =  fetchData("POST","fieldSetData")(Main);
+
+const Final = () => <Enhance url="{{url}}" data=\{{ api : "{{api}}" , swagger: "oneplatform"}} />;
+
+export default Final;

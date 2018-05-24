@@ -1,0 +1,49 @@
+{
+	"Name": "DEF-Ui-Modelling-Automate",
+	"TeamMembers": [],
+	"Buildpacks": {
+		"Name": "",
+		"Buildtool": "",
+		"PomXml": ""
+	},
+	"BuildFaces": {
+		"Clean": false,
+		"Compile": false,
+		"Build": false,
+		"validate": false,
+		"package": false,
+		"install": false,
+		"test": false,
+		"deploy": false
+	},
+	"SCM": {
+		"Name": "github",
+		"Link": "ssh://phvcs@platformworks.altimetrik.com:2222/diffusion/74/uimodeling.git",
+		"Username": "",
+		"Password": "",
+		"repoBranch": "*/master"
+	},
+	"ConnectTo": "jenkins",
+	"Jenkins": {
+		"JenkinsURL": "http://192.168.94.138:8082",
+		"JenkinsUsername": "rangan",
+		"JenkinsPassword": "rangan123",
+		"ArtifactoryUrl": "",
+		"TargetReleaseSynatax": "",
+		"TargetSnapshotSyntax": ""
+	},
+	"Concourse": {
+		"ConcourseURL": "",
+		"ConcourseUsername": "",
+		"ConcoursePassword": ""
+	},
+	"Pm": {
+		"Name": "",
+		"Link": "",
+		"Username": "",
+		"Password": ""
+	},
+	"CD": {
+		"bash": ""
+	}
+}

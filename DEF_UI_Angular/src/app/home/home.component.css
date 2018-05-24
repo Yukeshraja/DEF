@@ -1,0 +1,18 @@
+.centPad{
+  margin-top: 20%;
+  text-align: center;
+}
+.fnt{
+  font-family: 'Lato', sans-serif;
+  font-weight: bold;
+  color: #4a4a4a;
+}
+.intro{
+  font-size: 20px;
+  font-family: 'Lato', sans-serif;
+  font-weight: bold;
+  color: #929292;
+}
+.img-res{
+  max-height: 75px;
+}

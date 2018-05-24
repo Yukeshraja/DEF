@@ -1,0 +1,7 @@
+export const FETCH_STATUS = 'FETCH_STATUS';
+export const SET_DATA = 'SET_DATA';
+export const SET_ERROR = 'SET_ERROR';
+export const HANDLE_FORM_FIELD = 'HANDLE_FORM_FIELD';
+export const HANDLE_CHECKBOX = 'HANDLE_CHECKBOX';
+export const SET_INITIAL_VALUE = 'SET_INITIAL_VALUE';
+export const CLEAR_FORM ='CLEAR_FORM';

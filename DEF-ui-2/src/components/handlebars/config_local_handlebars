@@ -1,0 +1,81 @@
+{
+  "GlobalConfigutation": {
+    "layout": "{{layout}}",
+    "fieldSetURL": "http://192.168.91.51:8011/swagger/getFieldSet",
+    "fileUploadAPI": "http://localhost:8015/upload/file",
+    "styles": {
+      "style": "globalstyle"
+    },
+    "theme": {
+      "color": "black",
+      "fontFamily": "'wf_segoe-ui_normal', 'Segoe UI', 'Segoe WP', Tahoma, Arial, sans-serif"
+    },
+    "Header": {
+      "meta": "charset=\"UTF-8\"",
+      "appTitle": "UI Accelerators",
+      "link": {
+        "rel": "stylesheet"
+      },
+      "script": {
+        "type": "text/javascript"
+      },
+      "Content": {
+        "Template": {
+          "name": ""
+        }
+      }
+    },
+    "MenuContext": {
+      "styles": {
+        "style": "Menu"
+      },
+      "menuType": "menucollapser",
+      "position": "left-aligned",
+      "data": {
+        "menuHeading": "Alti Menu",
+        "menuItems": {{{menuItems}}}
+      },
+      "Template": {
+        "name": ""
+      }
+    },
+    "ViewConfigutation": {
+      "styles": {
+        "style": "Menu"
+      },
+      "Template": {
+        "name": ""
+      }
+    },
+    "Footer": {
+      "styles": {
+        "style": "Footer"
+      },
+      "Template": {
+        "name": ""
+      }
+    },
+    "Project": {
+      "path": "/app/P1/phabricator/uimodel/uimodeling"
+    }
+  },
+  "LayoutConfig": {
+    "layout8": {
+
+      "MenuContext": {
+        "styles": {
+          "style": "Menu"
+        },
+        "menuType": "menucollapser",
+        "position": "left-aligned",
+        "data": {
+          "menuHeading": "Alti Menu",
+          "menuItems": {{{menuItems}}}
+        },
+        "Template": {
+          "name": ""
+        }
+      }
+    }
+  }
+}

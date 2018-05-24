@@ -1,0 +1,56 @@
+.fnt{
+  text-align: center;
+  font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+.cnt{
+  margin-top: 15%;
+}
+.island, .island-landscape {
+    margin-top: 17px;
+}
+.island {
+    position: relative;
+    text-align: center;
+}
+.tiles {
+    list-style: none outside none;
+    margin-top: 40px;
+    padding: 0;
+}
+.tiles li {
+    display: inline-block;
+    margin: 10px;
+}
+.tiles a {
+    background-color: white;
+    background-repeat: no-repeat;
+    background-position: 50% 54%;
+    background-size: 88%;
+    border: 1px solid #cccccc;
+    display: block;
+    height: 86px;
+    overflow: hidden;
+    width: 158px;
+    padding: 8px;
+    margin: 4px;
+}
+
+.tile-1 .tile-icon {
+    background-image: url(https://cdn.iconscout.com/public/images/icon/premium/png-512/fly-launch-rocket-space-spaceship-start-startup-3859381ea5388798-512x512.png);
+}
+.tile-2 .tile-icon {
+    background-image: url(https://cdn2.iconfinder.com/data/icons/circle-icons-1/64/rocket-512.png);
+}
+.tile-3 .tile-icon {
+    background-image: url(https://cdn.iconscout.com/public/images/icon/premium/png-512/computer-launch-rocket-space-spaceship-start-startup-38841349a3d338c1-512x512.png);
+}
+.tile-4 .tile-icon {
+    background-image: url(http://gerongeo.ru/images/lic/image.png);
+}
+.tile-icon {
+    width: 100%;
+    height: 100%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
+}

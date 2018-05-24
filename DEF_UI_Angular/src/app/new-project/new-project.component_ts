@@ -1,0 +1,220 @@
+import {Component, OnInit} from '@angular/core';
+import { Http, Response, Headers, RequestOptions, URLSearchParams }
+from '@angular/http';
+import { Observable } from 'rxjs';
+import 'rxjs/add/operator/map';
+import { Router }    from '@angular/router';
+import { environment } from '../../environments/environment';
+
+@Component({
+  selector: 'app-new-project',
+  templateUrl: './new-project.component.html',
+  styleUrls: ['./new-project.component.css']
+})
+export class NewProjectComponent implements OnInit {
+  heroesUrl = "/api";
+  extractData: string;
+
+  Newproject = {
+    "Name": "",
+    "TeamMembers": [],
+    "Buildpacks": {
+      "Name": "java",
+      "Buildtool": "Maven",
+      "PomXml": "pom.xml"
+    },
+    "BuildFaces": {
+      "Clean": false,
+      "Compile": false,
+      "Build": false,
+      "validate": false,
+      "package": false,
+      "install": false,
+      "test": false,
+      "deploy": false,
+      "docker": false,
+      "dockerBuild": false,
+      "appPortNumber": "",
+      "dockerPortNumber": "",
+      "dockerServer": "",
+      "dockerPort": "",
+      "dockerImageName": "",
+      "extraArgs": " -DskipTests "
+    },
+    "SCM": {
+      "Name": "",
+      "Link": "",
+      "Credentials" : "",
+      "Username": "",
+      "Password": "",
+      "repoBranch": "*/master",
+      "authType": ""
+    },
+    "ConnectTo": "",
+    "Jenkins": {
+      "JenkinsURL": "",
+      "JenkinsUsername": "",
+      "JenkinsPassword": "",
+      "ArtifactoryUrl": "",
+      "TargetReleaseSynatax": "",
+      "TargetSnapshotSyntax": ""
+    },
+    "Concourse": {
+      "ConcourseURL": "",
+      "ConcourseUsername": "",
+      "ConcoursePassword": ""
+    },
+    "Pm": {
+      "Name": "",
+      "Link": "",
+      "Username": "",
+      "Password": ""
+    },
+    "CD": {
+      "bash": ""
+    }
+  };
+
+
+  dropdownList = [];
+  credentialsList = [];
+
+  dropdownSettings = {};
+  credentialsDropdown ={};
+
+  constructor(private http: Http, private router: Router) { 
+    this.getCredntials()
+  }
+
+  myMethod(data: any) {
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+
+    this.http
+      .post(environment.apiservices+ '/demo/createJob',
+      data, {
+        headers: headers
+      })
+      .subscribe(data => {
+        this.router.navigate(['Success']);
+      }, error => {
+        //  console.log(JSON.stringify(error.json()));
+        console.log("error");
+      });
+    // console.log(data);
+  }
+  getCredntials() {
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    
+
+
+
+
+    this.http.get(environment.apiservices+ '/demo/getAllCredentials')
+      .map(
+        (response) => response.json()
+      )
+     .subscribe(
+       (data) => {
+        // Read the result field from the JSON response.
+        //alert(JSON.stringify(data));
+        //alert(JSON.stringify(data['result']))
+        this.credentialsList = data['result'];
+      });
+
+
+
+/*
+
+.reduce(function(key, data['result'] => value) {
+          this.credentialsList.push({"id" : key , "itemName:" : value['credentialName'] })
+      })
+
+
+    this.http.get(environment.apiservices+ '/demo/getAllCredentials')
+      .subscribe(
+
+
+      (res:Response) => {
+
+          alert(JSON.stringify(res))
+          alert(JSON.stringify(res[_body]['result']))
+
+      }
+
+
+      );
+*/
+
+
+//      .subscribe((res:Response) => this.doSomething(res['result']));
+
+/*      .map(data => data['result'])
+      .reduce(function(key, data['result'] => value) {
+          this.credentialsList.push({"id" : key , "itemName:" : value['credentialName'] })
+    });*/
+
+        
+  }  
+
+  doSomething(data){
+    data.map(function(key, data) {
+          this.credentialsList.push({"id" : key , "itemName:" : data['credentialName'] })
+    })
+
+    alert(this.credentialsList); 
+  }
+
+
+  ngOnInit() {
+    this.dropdownList = [
+      { "id": 1, "itemName": "Kalanithi" },
+      { "id": 2, "itemName": "Shyam" },
+      { "id": 3, "itemName": "Sathya" },
+      { "id": 4, "itemName": "Suresh" },
+      { "id": 5, "itemName": "Naveen" },
+      { "id": 6, "itemName": "Chandra" },
+      { "id": 7, "itemName": "Arun" },
+      { "id": 8, "itemName": "Rangan" },
+      { "id": 9, "itemName": "Nithya" },
+      { "id": 10, "itemName": "Sengathir" }
+    ];
+    this.dropdownSettings = {
+      singleSelection: false,
+      text: "Select Team Members",
+      selectAllText: 'Select All',
+      unSelectAllText: 'UnSelect All',
+      enableSearchFilter: true,
+      classes: "myclass custom-class"
+    };
+    this.credentialsDropdown = {
+      singleSelection: true,
+      text: "Select Auth type",
+      enableSearchFilter: true,
+      classes: "myclass custom-class"
+    };
+  }
+  // passwordManagement = {
+  //   Scm:{
+  //     GitHub:"GITHUBALTI1",
+  //     GitLab:"GITLABALTI1",
+  //     SVN:""
+  //   },
+  //   Cloud:{
+  //     AWS:"AWSALTI1",
+  //     PCF:"PCFALTI1",
+  //     GoogleCloud:"GCALTI1",
+  //     Azure:"AZALTI1",
+  //     DigitalOcean:"DOSALTI1"
+  //   },
+  //   CI:{
+  //     Jenkins:"JENALTI1",
+  //     Concoures:"CONALTI1"
+  //   },
+  //   PM:{
+  //     Rally:"RAALTI001",
+  //     PivotalTracker:"PATLTI001"
+  //   }
+  // }
+}

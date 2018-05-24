@@ -1,0 +1,14 @@
+.table_header {
+        background-color: rgb(0, 188, 212);
+        color: #fff;
+        font-family: Roboto, sans-serif;
+}
+
+.table_row {
+      background : #fff;
+      font-family: Roboto, sans-serif;
+}
+
+.table_row :hover{
+      background-color: grey;
+}

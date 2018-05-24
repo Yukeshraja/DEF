@@ -1,0 +1,43 @@
+{
+            "name": "Unified Development Environment",
+            "shortdesc": "A Platform agnostic and framework agnostic IDE for developing mobile and web applications completely within the browser using a Component based approch.",
+            "screenshots": [{
+                    "screenshot": "http://lorempixel.com/400/200/sports/1",
+                    "type": "image"
+                },
+                {
+                    "screenshot": "http://lorempixel.com/400/200/sports/2",
+                    "type": "image"
+                }
+            ],
+            "changelog": "1. Added CSS Editor and Atrribute Editor.\n2. Added support for Multiple device simulator.",
+            "demoserver": "http://192.168.91.52:8085",
+            "repo": "ssh://phvcs@platformworks.altimetrik.com:2222/source/ude.git",
+            "testbed": "",
+            "presentation": "https://o365altimetrik-my.sharepoint.com/personal/hnarayanan_altimetrik_com/_layouts/15/guestaccess.aspx?guestaccesstoken=sInEOiGg%2f5%2fkFAVFfAsGNDpV4P8Pt56R6%2b%2fbC82idqU%3d&docid=2_0069696a0b1f24defba839e9e3a0dae2e&rev=1",
+            "features": [{
+                    "icon": "assets/images/design.svg",
+                    "heading": "Platform Agnostic",
+                    "shortdesc": ""
+                },
+                {
+                    "icon": "assets/images/design.svg",
+                    "heading": "Framework Agnostic",
+                    "shortdesc": ""
+                },
+                {
+                    "icon": "assets/images/design.svg",
+                    "heading": "",
+                    "shortdesc": ""
+                },
+                {
+                    "icon": "assets/images/design.svg",
+                    "heading": "",
+                    "shortdesc": ""
+                }
+            ],
+            "title": "Drag/Drop Interface with componentized development",
+            "longdesc": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of de Finibus Bonorum et Malorum (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, Lorem ipsum dolor sit amet.., comes from a line in section 1.10.32.",
+            "exampletitle": "Organization App",
+            "examplescreens": ""
+        }

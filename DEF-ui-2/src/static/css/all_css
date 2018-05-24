@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900');
+
+
+body {
+		background-color: #FAFAFA;
+}
+
+.logo {
+	background-image: url(http://platformworks.altimetrik.com/file/data/dkunub5piosnamr3whvj/PHID-FILE-vpbszanxwvjggypozr4f/logo);
+	background-repeat: no-repeat;
+    background-size: 70px 70px;
+    background-color: #ffff33 ;
+    height: "100px";
+	line-height: 90px;
+	text-align: center;
+	font-size: 40px;
+	color: #808000;
+}
+
+.config {
+	height: "100px";
+	width:"100px";
+}
+
+
+.logoNew {
+	background-image: url(http://www.altimetrik.com/wp-content/themes/angular-bootstrap/images/logo-white.png);
+	background-repeat: no-repeat;
+    background-color: #ffff33 ;
+    height: "100px";
+	line-height: 90px;
+	text-align: center;
+	font-size: 40px;
+	color: #808000;
+	padding-left: 10px;
+}
+
+.logo1 {
+	background-image: url(http://platformworks.altimetrik.com/file/data/dkunub5piosnamr3whvj/PHID-FILE-vpbszanxwvjggypozr4f/logo);
+	background-repeat: no-repeat;
+    background-size: 80px 80px;
+    height: "100px";
+}
+
+
+.bodyStyle {
+	text-align: left;
+}
+
+.align-center{
+	text-align: center;	
+}
+
+.fs40 {
+	font-size: 40;
+	color: #ffffff;
+}
+
+.textEllipsis{	
+	text-overflow: ellipsis; 
+}
+
+.img12{
+	background-image: url('../../../public/assets/images/icons/purpose2_1212.png');
+}
+
+.cardMoveTop{
+	position: relative;
+    top: -16px;
+}
+
+.container{
+	float:left;
+	width: 100%;
+	background-color: #FAFAFA
+}
+
+.block{
+	width: 100%;
+	padding: 20px
+}
+
+.header-bg{
+	background-color: #046393;
+	height: 70px;
+	line-height: 70px;
+	text-align: center;
+}
+
+.pad-8-12{
+	padding: 8px 12px
+}
+
+.pad-15-12{
+	padding: 15px 12px
+}
+
+.mar-20-16{
+	margin: 20px 16px
+}
+
+.row{
+	float: left;
+	width:100%;
+}
+
+.title{
+	font-size: 24px;
+	border-bottom: 1px solid #66BB6A;
+	color: #D32F2F
+}
+
+.sub-title{
+	font-size:13px;
+	font-weight: bold;
+	color: #757575
+}
+
+.sub-value{
+	font-size: 22px;
+	font-weight: normal;
+	color: #33691E
+}
+
+.align-left{
+	float:left;
+}
+
+.align-right{
+	float:right;
+}
+.align-center{
+	text-align: center
+}
+
+.vscrolling_container { 
+	height: 100%; 
+	overflow: auto; 
+}

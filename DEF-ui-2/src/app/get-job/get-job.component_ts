@@ -1,0 +1,126 @@
+import { Component, OnInit } from '@angular/core';
+import 'rxjs/add/operator/map';import { Http, Response, Headers, RequestOptions, URLSearchParams }
+from '@angular/http';
+import { Observable } from 'rxjs';
+import 'rxjs/add/operator/map';
+import { environment } from '../../environments/environment';
+
+@Component({
+  selector: 'app-get-job',
+  templateUrl: './get-job.component.html',
+  styleUrls: ['./get-job.component.css']
+})
+export class GetJobComponent implements OnInit {
+  Newproject = {
+    "Name": "gatewayservice",
+    "TeamMembers": [],
+    "Buildpacks": {
+      "Name": "java",
+      "Buildtool": "Maven",
+      "PomXml": "pom.xml"
+    },
+    "BuildFaces": {
+      "Clean": false,
+      "Compile": false,
+      "Build": false,
+      "validate": false,
+      "package": false,
+      "install": false,
+      "test": false,
+      "deploy": false,
+      "docker": false,
+      "dockerBuild": false,
+      "dockerServer": "",
+      "dockerPort": "",
+      "dockerImageName": "",
+    "appPortNumber": "",
+    "dockerPortNumber": "",
+      "extraArgs": ""
+    },
+    "SCM": {
+      "Name": "",
+      "Link": "",
+      "Username": "",
+      "Password": "",
+      "repoBranch": ""
+    },
+    "ConnectTo": "",
+    "Jenkins": {
+      "JenkinsURL": "",
+      "JenkinsUsername": "",
+      "JenkinsPassword": "",
+      "ArtifactoryUrl": "",
+      "TargetReleaseSynatax": "",
+      "TargetSnapshotSyntax": ""
+    },
+    "Concourse": {
+      "ConcourseURL": "",
+      "ConcourseUsername": "",
+      "ConcoursePassword": ""
+    },
+    "Pm": {
+      "Name": "",
+      "Link": "",
+      "Username": "",
+      "Password": ""
+    },
+    "CD": {
+      "bash": ""
+    }
+  };
+  Edit = false;
+  Data : string;
+  JobNam = '';
+  constructor(private http: Http) {
+  }
+
+  getConstants() {
+      alert(environment.apiservices);
+  }
+
+  ngOnInit() {
+    //alert(environment.apiservices);
+
+    this.http.get(environment.apiservices+ '/demo/getAllJob').map(
+      (response) => response.json()
+    )
+   .subscribe(
+     (data) => {
+      // Read the result field from the JSON response.
+      this.Data = data;
+    }
+   )
+  }
+  GetJUpdat(data){
+  this.Edit = true;
+    this.JobNam = data;
+    // this.router.navigate(['update']);
+    this.http.get(environment.apiservices+ '/demo/getOneJob/'+this.JobNam).map(
+      (response) => response.json()
+    )
+   .subscribe(
+     (data) => {
+      // Read the result field from the JSON response.
+      this.Newproject = data;
+    }
+   )
+  }
+  UpdateProject(data : any, jobName){
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+
+    this.http
+      .put(environment.apiservices+ '/demo/updateJob/'+jobName,
+      data, {
+        headers: headers
+      })
+      .subscribe(data => {
+        alert('ok');
+      }, error => {
+        console.log("error");
+      });
+  }
+  cancel(){
+    this.Edit = false;
+  }
+}

@@ -1,0 +1,525 @@
+{
+    "FieldSet": {
+        "Title": "paysa_remitter_dtls",
+        "Type": "Object",
+        "Field": [{
+                "name": "id",
+                "type": "integer",
+                "format": "int64",
+                "description": "{\"primaryKey\":true}",
+                "enum": "",
+                "tabIndex": "",
+                "regex": "",
+                "required": "",
+                "src": "",
+                "focusAction": "",
+                "focusOutAction": "",
+                "keyOutAction": "",
+                "onLoadAction": "",
+                "onClickAction": "",
+                "serviceUrl": "",
+                "styles": {
+                    "style": "FSField"
+                }
+            },
+            {
+                "name": "bank_remitter_dtls_id",
+                "type": "string",
+                "format": "",
+                "description": "",
+                "enum": "",
+                "tabIndex": "",
+                "regex": "",
+                "required": "",
+                "focusAction": "",
+                "focusOutAction": "",
+                "keyOutAction": "",
+                "onLoadAction": "",
+                "onClickAction": "",
+                "serviceUrl": "",
+                "styles": {
+                    "style": "FSField"
+                }
+            },
+            {
+                "name": "name",
+                "type": "string",
+                "format": "",
+                "description": "",
+                "enum": "",
+                "tabIndex": "",
+                "regex": "",
+                "required": "",
+                "focusAction": "",
+                "focusOutAction": "",
+                "keyOutAction": "",
+                "onLoadAction": "",
+                "onClickAction": "",
+                "serviceUrl": "",
+                "styles": {
+                    "style": "FSField"
+                }
+            },
+            {
+                "name": "mobile_number",
+                "type": "string",
+                "format": "",
+                "description": "",
+                "enum": "",
+                "tabIndex": "",
+                "regex": "",
+                "required": "",
+                "focusAction": "",
+                "focusOutAction": "",
+                "keyOutAction": "",
+                "onLoadAction": "",
+                "onClickAction": "",
+                "serviceUrl": "",
+                "styles": {
+                    "style": "FSField"
+                }
+            },
+            {
+                "name": "address1",
+                "type": "string",
+                "format": "",
+                "description": "",
+                "enum": "",
+                "tabIndex": "",
+                "regex": "",
+                "required": "",
+                "focusAction": "",
+                "focusOutAction": "",
+                "keyOutAction": "",
+                "onLoadAction": "",
+                "onClickAction": "",
+                "serviceUrl": "",
+                "styles": {
+                    "style": "FSField"
+                }
+            },
+            {
+                "name": "address2",
+                "type": "string",
+                "format": "",
+                "description": "",
+                "enum": "",
+                "tabIndex": "",
+                "regex": "",
+                "required": "",
+                "focusAction": "",
+                "focusOutAction": "",
+                "keyOutAction": "",
+                "onLoadAction": "",
+                "onClickAction": "",
+                "serviceUrl": "",
+                "styles": {
+                    "style": "FSField"
+                }
+            },
+            {
+                "name": "pincode",
+                "type": "string",
+                "format": "",
+                "description": "",
+                "enum": "",
+                "tabIndex": "",
+                "regex": "",
+                "required": "",
+                "focusAction": "",
+                "focusOutAction": "",
+                "keyOutAction": "",
+                "onLoadAction": "",
+                "onClickAction": "",
+                "serviceUrl": "",
+                "styles": {
+                    "style": "FSField"
+                }
+            },
+            {
+                "name": "city",
+                "type": "string",
+                "format": "",
+                "description": "",
+                "enum": "",
+                "tabIndex": "",
+                "regex": "",
+                "required": "",
+                "focusAction": "",
+                "focusOutAction": "",
+                "keyOutAction": "",
+                "onLoadAction": "",
+                "onClickAction": "",
+                "serviceUrl": "",
+                "styles": {
+                    "style": "FSField"
+                }
+            },
+            {
+                "name": "state",
+                "type": "string",
+                "format": "",
+                "description": "",
+                "enum": "",
+                "tabIndex": "",
+                "regex": "",
+                "required": "",
+                "focusAction": "",
+                "focusOutAction": "",
+                "keyOutAction": "",
+                "onLoadAction": "",
+                "onClickAction": "",
+                "serviceUrl": "",
+                "styles": {
+                    "style": "FSField"
+                }
+            },
+            {
+                "name": "alternate_number",
+                "type": "string",
+                "format": "",
+                "description": "",
+                "enum": "",
+                "tabIndex": "",
+                "regex": "",
+                "required": "",
+                "focusAction": "",
+                "focusOutAction": "",
+                "keyOutAction": "",
+                "onLoadAction": "",
+                "onClickAction": "",
+                "serviceUrl": "",
+                "styles": {
+                    "style": "FSField"
+                }
+            },
+            {
+                "name": "idproof",
+                "type": "string",
+                "format": "",
+                "description": "",
+                "enum": "",
+                "tabIndex": "",
+                "regex": "",
+                "required": "",
+                "focusAction": "",
+                "focusOutAction": "",
+                "keyOutAction": "",
+                "onLoadAction": "",
+                "onClickAction": "",
+                "serviceUrl": "",
+                "styles": {
+                    "style": "FSField"
+                }
+            },
+            {
+                "name": "idproof_number",
+                "type": "string",
+                "format": "",
+                "description": "",
+                "enum": "",
+                "tabIndex": "",
+                "regex": "",
+                "required": "",
+                "focusAction": "",
+                "focusOutAction": "",
+                "keyOutAction": "",
+                "onLoadAction": "",
+                "onClickAction": "",
+                "serviceUrl": "",
+                "styles": {
+                    "style": "FSField"
+                }
+            },
+            {
+                "name": "idproof_issue_date",
+                "type": "string",
+                "format": "",
+                "description": "",
+                "enum": "",
+                "tabIndex": "",
+                "regex": "",
+                "required": "",
+                "focusAction": "",
+                "focusOutAction": "",
+                "keyOutAction": "",
+                "onLoadAction": "",
+                "onClickAction": "",
+                "serviceUrl": "",
+                "styles": {
+                    "style": "FSField"
+                }
+            },
+            {
+                "name": "idproof_expiry_date",
+                "type": "string",
+                "format": "",
+                "description": "",
+                "enum": "",
+                "tabIndex": "",
+                "regex": "",
+                "required": "",
+                "focusAction": "",
+                "focusOutAction": "",
+                "keyOutAction": "",
+                "onLoadAction": "",
+                "onClickAction": "",
+                "serviceUrl": "",
+                "styles": {
+                    "style": "FSField"
+                }
+            },
+            {
+                "name": "idproof_issue_place",
+                "type": "string",
+                "format": "",
+                "description": "",
+                "enum": "",
+                "tabIndex": "",
+                "regex": "",
+                "required": "",
+                "focusAction": "",
+                "focusOutAction": "",
+                "keyOutAction": "",
+                "onLoadAction": "",
+                "onClickAction": "",
+                "serviceUrl": "",
+                "styles": {
+                    "style": "FSField"
+                }
+            },
+            {
+                "name": "local_address",
+                "type": "string",
+                "format": "",
+                "description": "",
+                "enum": "",
+                "tabIndex": "",
+                "regex": "",
+                "required": "",
+                "focusAction": "",
+                "focusOutAction": "",
+                "keyOutAction": "",
+                "onLoadAction": "",
+                "onClickAction": "",
+                "serviceUrl": "",
+                "styles": {
+                    "style": "FSField"
+                }
+            },
+            {
+                "name": "local_pincode",
+                "type": "string",
+                "format": "",
+                "description": "",
+                "enum": "",
+                "tabIndex": "",
+                "regex": "",
+                "required": "",
+                "focusAction": "",
+                "focusOutAction": "",
+                "keyOutAction": "",
+                "onLoadAction": "",
+                "onClickAction": "",
+                "serviceUrl": "",
+                "styles": {
+                    "style": "FSField"
+                }
+            },
+            {
+                "name": "local_state",
+                "type": "string",
+                "format": "",
+                "description": "",
+                "enum": "",
+                "tabIndex": "",
+                "regex": "",
+                "required": "",
+                "focusAction": "",
+                "focusOutAction": "",
+                "keyOutAction": "",
+                "onLoadAction": "",
+                "onClickAction": "",
+                "serviceUrl": "",
+                "styles": {
+                    "style": "FSField"
+                }
+            },
+            {
+                "name": "local_city",
+                "type": "string",
+                "format": "",
+                "description": "",
+                "enum": "",
+                "tabIndex": "",
+                "regex": "",
+                "required": "",
+                "focusAction": "",
+                "focusOutAction": "",
+                "keyOutAction": "",
+                "onLoadAction": "",
+                "onClickAction": "",
+                "serviceUrl": "",
+                "styles": {
+                    "style": "FSField"
+                }
+            },
+            {
+                "name": "otp",
+                "type": "string",
+                "format": "",
+                "description": "",
+                "enum": "",
+                "tabIndex": "",
+                "regex": "",
+                "required": "",
+                "focusAction": "",
+                "focusOutAction": "",
+                "keyOutAction": "",
+                "onLoadAction": "",
+                "onClickAction": "",
+                "serviceUrl": "",
+                "styles": {
+                    "style": "FSField"
+                }
+            },
+            {
+                "name": "paysa_status",
+                "type": "integer",
+                "format": "int64",
+                "description": "{\"foreignKeyColumn\":\"STS\",\"relation\":\"OneToOne\"}",
+                "enum": "",
+                "tabIndex": "",
+                "regex": "",
+                "required": "",
+                "focusAction": "",
+                "focusOutAction": "",
+                "keyOutAction": "",
+                "onLoadAction": "",
+                "onClickAction": "",
+                "serviceUrl": "",
+                "styles": {
+                    "style": "FSField"
+                }
+            },
+            {
+                "name": "version",
+                "type": "integer",
+                "format": "int32",
+                "description": "",
+                "enum": "",
+                "tabIndex": "",
+                "regex": "",
+                "required": "",
+                "focusAction": "",
+                "focusOutAction": "",
+                "keyOutAction": "",
+                "onLoadAction": "",
+                "onClickAction": "",
+                "serviceUrl": "",
+                "styles": {
+                    "style": "FSField"
+                }
+            },
+            {
+                "name": "created_by",
+                "type": "string",
+                "format": "",
+                "description": "",
+                "enum": "",
+                "tabIndex": "",
+                "regex": "",
+                "required": "",
+                "focusAction": "",
+                "focusOutAction": "",
+                "keyOutAction": "",
+                "onLoadAction": "",
+                "onClickAction": "",
+                "serviceUrl": "",
+                "styles": {
+                    "style": "FSField"
+                }
+            },
+            {
+                "name": "updated_by",
+                "type": "string",
+                "format": "",
+                "description": "",
+                "enum": "",
+                "tabIndex": "",
+                "regex": "",
+                "required": "",
+                "focusAction": "",
+                "focusOutAction": "",
+                "keyOutAction": "",
+                "onLoadAction": "",
+                "onClickAction": "",
+                "serviceUrl": "",
+                "styles": {
+                    "style": "FSField"
+                }
+            },
+            {
+                "name": "created_dt",
+                "type": "string",
+                "format": "date-time",
+                "description": "",
+                "enum": "",
+                "tabIndex": "",
+                "regex": "",
+                "required": "",
+                "focusAction": "",
+                "focusOutAction": "",
+                "keyOutAction": "",
+                "onLoadAction": "",
+                "onClickAction": "",
+                "serviceUrl": "",
+                "styles": {
+                    "style": "FSField"
+                }
+            },
+            {
+                "name": "upd_dt",
+                "type": "string",
+                "format": "date-time",
+                "description": "",
+                "enum": "",
+                "tabIndex": "",
+                "regex": "",
+                "required": "",
+                "focusAction": "",
+                "focusOutAction": "",
+                "keyOutAction": "",
+                "onLoadAction": "",
+                "onClickAction": "",
+                "serviceUrl": "",
+                "styles": {
+                    "style": "FSField"
+                }
+            }
+        ],
+        "FieldSet": {
+            "Title": "paysa_status",
+            "Type": "Object",
+            "Field": {
+                "name": "STS",
+                "type": "integer",
+                "format": "int32",
+                "description": "{\"foreignKeyColumn\":\"STS\",\"relation\":\"OneToOne\"}",
+                "enum": "",
+                "tabIndex": "",
+                "regex": "",
+                "required": "",
+                "focusAction": "",
+                "focusOutAction": "",
+                "keyOutAction": "",
+                "onLoadAction": "",
+                "onClickAction": "",
+                "serviceUrl": "",
+                "styles": {
+                    "style": "FSField"
+                }
+            }
+        }
+    }
+}

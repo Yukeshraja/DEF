@@ -1,0 +1,551 @@
+[
+
+	{
+		"name": "ActivityIndicator",
+		"desc": "Display a circular loading indicator",
+		"author": "Facebook",
+		"tag": [],
+		"icon": "",
+		"screenshot": "",
+		"identifier": "react-native",
+		"attributes": [{
+			"name": "animating",
+			"type": "boolean",
+			"options": [true, false],
+			"mandatory": true,
+			"default": true
+		}, {
+			"name": "color",
+			"type": "[object]",
+			"mandatory": true,
+			"default": "#808080",
+			"validator": ""
+		}, {
+			"name": "size",
+			"type": "[object][object]",
+			"mandatory": true,
+			"default": "[12][12]",
+			"validator": ""
+		}]
+	} ,
+
+	{
+		"name": "Button",
+		"desc": "Clickable button",
+		"author": "Facebook",
+		"tag": [],
+		"icon": "",
+		"screenshot": "",
+		"identifier": "react-native",
+		"attributes": [{
+			"name": "accessibilityLabel",
+			"type": "String",
+			"mandatory": true,
+			"default": false
+		}, {
+			"name": "color",
+			"type": "String",
+			"mandatory": true,
+			"default": "#808080",
+			"validator": ""
+		}, {
+			"name": "disabled",
+			"type": "boolean",
+			"options": [true, false],
+			"mandatory": true
+		}, {
+			"name": "testId",
+			"type": "String",
+			"mandatory": true,
+			"default": true
+		}, {
+			"name": "title",
+			"type": "String",
+			"mandatory": true,
+			"default": true
+		}]
+	},
+
+	{
+		"name": "Image",
+		"desc": "Display a circular loading indicator",
+		"author": "Facebook",
+		"tag": [],
+		"icon": "",
+		"screenshot": "",
+		"identifier": "react-native",
+		"attributes": [{
+			"name": "resizeMode",
+			"type": "enum",
+			"options": ["cover", "contain", "stretch", "center"],
+			"mandatory": true
+		}, {
+			"name": "source",
+			"type": "ImageSourcePropType",
+			"mandatory": true,
+			"default": "#808080"
+		}, {
+			"name": "testID",
+			"type": "String",
+			"mandatory": true,
+			"default": true
+		}]
+	},
+
+	{
+		"name": "ListView",
+		"desc": "Displaying vertically scrolling lists of changing data",
+		"author": "Facebook",
+		"tag": [],
+		"icon": "",
+		"screenshot": "",
+		"identifier": "react-native",
+		"attributes": [{
+			"name": "dataSource",
+			"type": "[object]",
+			"mandatory": true
+		}, {
+			"name": "enableEmptySections",
+			"type": "boolean",
+			"options": [true, false],
+			"mandatory": true,
+			"default": true
+		}, {
+			"name": "initialListSize",
+			"type": "number",
+			"mandatory": true,
+			"default": 0,
+			"validator": ""
+		}, {
+			"name": "onEndReachedThreshold",
+			"type": "number",
+			"mandatory": true,
+			"default": 1,
+			"validator": ""
+		}, {
+			"name": "pageSize",
+			"type": "number",
+			"mandatory": true,
+			"default": 1,
+			"validator": ""
+		}, {
+			"name": "removeClippedSubviews",
+			"type": "boolean",
+			"options": [true, false],
+			"mandatory": true,
+			"default": true,
+			"validator": ""
+		}, {
+			"name": "scrollRenderAheadDistance",
+			"type": "number",
+			"mandatory": true,
+			"default": 0,
+			"validator": ""
+		}]
+	},
+
+	{
+		"name": "Picker",
+		"desc": "Picker component to select an item",
+		"author": "Facebook",
+		"tag": [],
+		"icon": "",
+		"screenshot": "",
+		"identifier": "react-native",
+		"attributes": [{
+			"name": "selectedValue",
+			"type": "[object]",
+			"mandatory": true
+		}, {
+			"name": "testID",
+			"type": "String",
+			"mandatory": true,
+			"validator": ""
+		}]
+	},
+
+	{
+		"name": "ScrollView",
+		"desc": "To make component scrollable",
+		"author": "Facebook",
+		"tag": [],
+		"icon": "",
+		"screenshot": "",
+		"identifier": "react-native",
+		"attributes": [{
+			"name": "horizontal",
+			"type": "boolean",
+			"options": [true, false],
+			"default": false
+		}, {
+			"name": "keyboardDismissMode",
+			"type": "enum",
+			"options": ["none", "interactive", "on-drag"]
+		}, {
+			"name": "keyboardShouldPersistTaps",
+			"type": "enum",
+			"options": ["always", "never", "handled", false, true]
+		}, {
+			"name": "pagingEnabled",
+			"type": "boolean",
+			"options": [true, false],
+			"mandatory": true,
+			"default": false,
+			"validator": ""
+		}, {
+			"name": "removeClippedSubviews",
+			"type": "boolean",
+			"options": [true, false],
+			"mandatory": true,
+			"default": true
+		}, {
+			"name": "scrollEnabled",
+			"type": "boolean",
+			"options": [true, false],
+			"mandatory": true,
+			"default": true
+		}, {
+			"name": "showsHorizontalScrollIndicator",
+			"type": "boolean",
+			"options": [true, false],
+			"mandatory": true,
+			"default": false
+		}, {
+			"name": "showsVerticalScrollIndicator",
+			"type": "boolean",
+			"options": [true, false],
+			"mandatory": true,
+			"default": true
+		}]
+	},
+
+	{
+		"name": "Slider",
+		"desc": "A component used to select a single value from a range of values.",
+		"author": "Facebook",
+		"tag": [],
+		"icon": "",
+		"screenshot": "",
+		"identifier": "react-native",
+		"attributes": [{
+			"name": "disabled",
+			"type": "boolean",
+			"options": [true, false],
+			"mandatory": true,
+			"default": false
+		}, {
+			"name": "maximumTrackTintColor",
+			"type": "[object]"
+		}, {
+			"name": "maximumValue",
+			"type": "number",
+			"mandatory": true,
+			"default": 1,
+			"validator": ""
+		}, {
+			"name": "minimumTrackTintColor",
+			"type": "[object]"
+		}, {
+			"name": "minimumValue",
+			"type": "number",
+			"mandatory": true,
+			"default": 0,
+			"validator": ""
+
+		}, {
+			"name": "step",
+			"type": "number",
+			"default": 1
+		}, {
+			"name": "testID",
+			"type": "String",
+			"validator": ""
+		}, {
+			"name": "value",
+			"type": "number",
+			"mandatory": true,
+			"default": 0
+		}]
+	},
+
+	{
+		"name": "Status Bar",
+		"desc": "Display status of app",
+		"author": "Facebook",
+		"tag": [],
+		"icon": "",
+		"screenshot": "",
+		"identifier": "react-native",
+		"attributes": [{
+			"name": "animated",
+			"type": "boolean",
+			"options": [true, false],
+			"default": true
+		}, {
+			"name": "hidden",
+			"type": "boolean",
+			"options": [true, false],
+			"mandatory": true,
+			"default": true
+		}]
+	},
+
+
+	{
+		"name": "Switch",
+		"desc": "Switches can be set to true or false",
+		"author": "Facebook",
+		"tag": [],
+		"icon": "",
+		"screenshot": "",
+		"identifier": "react-native",
+		"attributes": [{
+				"name": "disabled",
+				"type": "boolean",
+				"options": [true, false],
+				"mandatory": true,
+				"default": false
+			}, {
+				"name": "onTintColor",
+				"type": "[object]",
+				"mandatory": true,
+				"validator": ""
+			}, {
+				"name": "testID",
+				"type": "String",
+				"mandatory": true,
+				"validator": ""
+			}, {
+				"name": "thumbTintColor",
+				"type": "[object]",
+				"mandatory": true
+			}, {
+				"name": "tintColor",
+				"type": "[object]",
+				"mandatory": true
+			}
+
+		]
+	},
+
+
+	{
+    "name" : "Text",
+    "desc" : "component for displaying text",
+    "author" : "Facebook",
+    "tag" : [],
+    "icon" : "",
+    "screenshot" : "",
+    "identifier" : "react-native",
+    
+		"attributes": [{
+			"name": "accessible",
+			"type": "boolean",
+			"options": [true, false],
+			"default": true
+		}, {
+			"name": "allowFontScaling",
+			"type": "boolean",
+			"options": [true, false],
+			"mandatory": true,
+			"default": true
+		}, {
+			"name": "ellipsizeMode",
+			"type": "enum",
+			"options": ["head", "middle", "tail", "clip"]
+		}, {
+			"name": "numberOfLines",
+			"type": "number",
+			"validator": ""
+		}, {
+			"name": "selectable",
+			"type": "boolean",
+			"options": [true, false],
+			"mandatory": true,
+			"default": true
+		}, {
+			"name": "testID",
+			"type": "String",
+			"validator": ""
+		}]
+	},
+
+	{
+		"name": "TextInput",
+		"desc": "component for Inputting text",
+		"author": "Facebook",
+		"tag": [],
+		"icon": "",
+		"screenshot": "",
+		"identifier": "react-native",
+
+		"attributes": [{
+			"name": "autoCapitalize",
+			"type": "enum",
+			"options": ["none", "sentences", "words", "characters"],
+			"mandatory": true,
+			"default": ["sentences"]
+		}, {
+			"name": "autoCorrect",
+			"type": "boolean",
+			"options": [true, false],
+			"mandatory": true,
+			"default": true
+		}, {
+			"name": "autoFocus",
+			"type": "boolean",
+			"options": [true, false],
+			"mandatory": true,
+			"default": false
+		}, {
+			"name": "blurOnSubmit",
+			"type": "boolean",
+			"options": [true, false],
+			"default": true
+		}, {
+			"name": "defaultValue",
+			"type": "String"
+		}, {
+			"name": "editable",
+			"type": "boolean",
+			"options": [true, false],
+			"mandatory": true,
+			"default": true
+		}, {
+			"name": "keyboardType",
+			"type": "enum",
+			"options": ["default", "email-address", "numeric", "phone-pad", "ascii-capable", "numbers-and-punctuation", "url", "number-pad", "name-phone-pad", "decimal-pad", "twitter", "web-search"],
+			"default": "default"
+		}, {
+			"name": "maxLength",
+			"type": "number",
+			"validator": ""
+
+		}, {
+			"name": "multiline",
+			"type": "boolean",
+			"options": [true, false],
+			"mandatory": true,
+			"default": false
+		}, {
+			"name": "placeholder",
+			"type": "String"
+		}, {
+			"name": "placeholderTextColor",
+			"type": "[object]",
+			"validator": ""
+		}, {
+			"name": "returnKeyType",
+			"type": "enum",
+			"options": ["done", "go", "next", "search", "send", "none", "previous", "default", "emergency-call", "google", "join", "route", "yahoo"],
+			"default": "done"
+		}, {
+			"name": "secureTextEntry",
+			"type": "boolean",
+			"options": [true, false],
+			"default": true
+		}, {
+			"name": "selectTextOnFocus",
+			"type": "boolean",
+			"options": [true, false]
+		}, {
+			"name": "value",
+			"type": "String",
+			"validator": ""
+		}]
+	},
+
+	{
+		"name": "TouchableHighlight ",
+		"desc": "component for respond properly to touches",
+		"author": "Facebook",
+		"tag": [],
+		"icon": "",
+		"screenshot": "",
+		"identifier": "react-native",
+
+		"attributes": [{
+			"name": "activeOpacity",
+			"type": "number",
+			"validator": ""
+		},{
+			"name": "underlayColor",
+			"type": "[object]",
+			"validator": ""
+		}]
+	},
+
+	{
+		"name": "View",
+		"desc": "View is a container that supports layout with flexbox, style, some touch handling, and accessibility controls",
+		"author": "Facebook",
+		"tag": [],
+		"icon": "",
+		"screenshot": "",
+		"identifier": "react-native",
+
+		"attributes": [{
+			"name": "pointerEvents",
+			"type": "enum",
+			"options": ["box-none", "none", "box-only", "auto"],
+			"validator": ""
+		}, {
+			"name": "removeClippedSubviews",
+			"type": "boolean",
+			"options": [true, false],
+			"mandatory": true,
+			"default": false
+		}, {
+			"name": "testID",
+			"type": "String"
+		}]
+	},
+
+	{
+		"name": "WebView",
+		"desc": "WebView renders web content in a native view",
+		"author": "Facebook",
+		"tag": [],
+		"icon": "",
+		"screenshot": "",
+		"identifier": "react-native",
+
+		"attributes": [{
+			"name": "automaticallyAdjustContentInsets",
+			"type": "boolean",
+			"options": [true, false],
+			"mandatory": true,
+			"default": true
+		}, {
+			"name": "contentInset",
+			"type": "[object]",
+			"options": "{top: number, left: number, bottom: number, right: number}",
+			"mandatory": true,
+			"default": "{0,0,0,0}"
+		}, {
+			"name": "injectedJavaScript",
+			"type": "String"
+		}, {
+			"name": "mediaPlaybackRequiresUserAction",
+			"type": "boolean",
+			"options": [true, false],
+			"mandatory": true,
+			"default": true
+		}, {
+			"name": "scalesPageToFit",
+			"type": "boolean",
+			"options": [true, false],
+			"mandatory": true,
+			"default": true
+		}, {
+			"name": "source",
+			"type": "[object Object], [object Object], [object Object]"
+		}, {
+			"name": "startInLoadingState",
+			"type": "boolean",
+			"options": [true, false],
+			"mandatory": true,
+			"default": true
+		}]
+	}
+]

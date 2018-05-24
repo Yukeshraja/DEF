@@ -1,0 +1,109 @@
+[{
+        "name": "id",
+        "type": "integer",
+        "format": "int64",
+        "description": "{\"primaryKey\":true}",
+        "enum": "",
+        "tabIndex": "",
+        "regex": "",
+        "required": "",
+        "src": "",
+        "focusAction": "",
+        "focusOutAction": "",
+        "keyOutAction": "",
+        "onLoadAction": "",
+        "onClickAction": "",
+        "serviceUrl": "",
+        "styles": {
+            "style": "FSField"
+        }
+    },
+    {
+        "name": "bank_remitter_dtls_id",
+        "type": "string",
+        "format": "",
+        "description": "",
+        "enum": "",
+        "tabIndex": "",
+        "regex": "",
+        "required": "",
+        "focusAction": "",
+        "focusOutAction": "",
+        "keyOutAction": "",
+        "onLoadAction": "",
+        "onClickAction": "",
+        "serviceUrl": "",
+        "styles": {
+            "style": "FSField"
+        }
+    },
+    {
+        "name": "sample",
+        "type": "checkbox",
+        "format": "",
+        "description": "",
+        "enum": [{
+            "labelText": "sample1",
+            "name": "sample1"
+        }, {
+            "labelText": "sample2",
+            "name": "sample2"
+        }],
+        "tabIndex": "",
+        "regex": "",
+        "required": "",
+        "focusAction": "",
+        "focusOutAction": "",
+        "keyOutAction": "",
+        "onLoadAction": "",
+        "onClickAction": "",
+        "serviceUrl": "",
+        "styles": {
+            "style": "FSField"
+        }
+    },
+    {
+        "name": "sample1",
+        "type": "radio",
+        "format": "",
+        "description": "",
+        "enum": [{
+            "labelText": "sample1",
+            "value": "sample1"
+        }, {
+            "labelText": "sample2",
+            "value": "sample2"
+        }],
+        "tabIndex": "",
+        "regex": "",
+        "required": "",
+        "focusAction": "",
+        "focusOutAction": "",
+        "keyOutAction": "",
+        "onLoadAction": "",
+        "onClickAction": "",
+        "serviceUrl": "",
+        "styles": {
+            "style": "FSField"
+        }
+    },
+    {
+        "name": "sample2",
+        "type": "dropdown",
+        "format": "",
+        "description": "",
+        "enum": "",
+        "tabIndex": "",
+        "regex": "",
+        "required": "",
+        "focusAction": "",
+        "focusOutAction": "",
+        "keyOutAction": "",
+        "onLoadAction": "",
+        "onClickAction": "",
+        "serviceUrl": "http://localhost:3002/options",
+        "styles": {
+            "style": "FSField"
+        }
+    }
+]

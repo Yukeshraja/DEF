@@ -1,0 +1,19 @@
+{
+	"DEF": {
+		"DEV" : {
+			"server.port" : "8900",
+			"spring.data.mongodb.host" : "127.0.0.1",
+			"spring.data.mongodb.port" : "27017"
+		},
+		"UAT" : {
+			"server.port" : "8900",
+			"spring.data.mongodb.host" : "10.101.103.65",
+			"spring.data.mongodb.port" : "27017"
+		},
+		"PRD" : {
+			"server.port" : "8900",
+			"spring.data.mongodb.host" : "",
+			"spring.data.mongodb.port" : "27017"
+		}	 
+	}
+}

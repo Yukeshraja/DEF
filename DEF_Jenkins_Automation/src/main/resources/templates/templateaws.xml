@@ -1,0 +1,151 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.5.0">
+    <configVersion>2</configVersion>
+<!--     <userRemoteConfigs>
+      <hudson.plugins.git.UserRemoteConfig>
+        <url>{{scm.link}}</url>
+     	   <credentialsId>{{scm.}}</credentialsId>
+      </hudson.plugins.git.UserRemoteConfig>
+    </userRemoteConfigs> -->
+     <userRemoteConfigs>
+      <hudson.plugins.git.UserRemoteConfig>
+        <url>{{scm.link}}</url>
+        <credentialsId>664391e0-edc7-4a34-bbb4-f8720255e90c</credentialsId>
+      </hudson.plugins.git.UserRemoteConfig>
+    </userRemoteConfigs>
+    <branches>
+      <hudson.plugins.git.BranchSpec>
+        <name>{{scm.repoBranch}}</name>
+      </hudson.plugins.git.BranchSpec>
+    </branches>
+    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+    <submoduleCfg class="list"/>
+    <extensions/>
+  </scm>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <authToken>DEFRAMEWORK</authToken>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Maven>
+      <targets>
+      
+      		{{#if buildFaces.clean}}
+				clean
+				{{/if}}
+
+				{{#if buildFaces.compile}}
+				compile
+				{{/if}}
+
+				{{#if buildFaces.build}}
+				build
+				{{/if}}
+
+				{{#if
+				buildFaces.validate}}
+				validate
+				{{/if}}
+
+				{{#if buildFaces.package}}
+				package
+				{{/if}}
+
+				{{#if buildFaces.install}}
+				install
+				{{/if}}
+
+				{{#if
+				buildFaces.test}}
+				test
+				{{/if}}
+
+				{{#if buildFaces.deploy}}
+				deploy
+				{{/if}}
+
+				{{#if buildFaces.dockerBuild}}
+				docker:build -DdockerImageName=$JOB_BASE_NAME:$BUILD_ID
+				{{/if}}
+
+				{{#if buildFaces.extraArgs }}
+					{{ buildFaces.extraArgs }}
+				{{/if}}
+
+
+<!-- 				{{#if buildFaces.extraArgs }}
+				{{ buildFaces.extraArgs }}
+					-DdockerImageName={{ buildFaces.dockerImageName }}
+				{{/if}} -->
+      		
+      	
+      </targets>
+      <mavenName>{{ buildpacks.buildtool }}</mavenName>
+      <pom>{{ buildpacks.pomXml }}</pom>
+      <usePrivateRepository>false</usePrivateRepository>
+      <settings class="jenkins.mvn.DefaultSettingsProvider"/>
+      <globalSettings class="jenkins.mvn.DefaultGlobalSettingsProvider"/>
+      <injectBuildVariables>false</injectBuildVariables>
+    </hudson.tasks.Maven>
+    <hudson.tasks.Shell>
+      <command># Get metadata for the environment and set variables
+#export _DOCKERPORT=$(cat metadata.json | jq --raw-output &apos;.&quot;hosting&quot;.&apos;$_ENV&apos;.dockerPort&apos;)
+#export _HOSTPORT=$(cat metadata.json | jq --raw-output &apos;.&quot;hosting&quot;.&apos;$_ENV&apos;.hostPort&apos;)
+#export _DOCKERHOST=$(cat metadata.json | jq --raw-output &apos;.&quot;hosting&quot;.&apos;$_ENV&apos;.dockerHost&apos;)
+
+#export _DOCKERPORT=8080
+#export _HOSTPORT=50111
+#export _DOCKERHOST=10.101.101.198
+
+
+export _DOCKERPORT={{ cd.dockerExposedPortNumber }}
+export _HOSTPORT={{ cd.appTargetPortNumber }}
+export _DOCKERHOST={{ cd.dockerImgRegistryServer }}
+
+#
+# Run docker build, push, run and cleanup
+docker login -u $_DOCKERUSER -p $_DOCKERPW $_DOCKERREPO
+cd {{buildFaces.dockerFilePath}}
+docker build -t $JOB_BASE_NAME:$BUILD_ID .
+docker tag $JOB_BASE_NAME:$BUILD_ID $_DOCKERREPO/$JOB_BASE_NAME:$BUILD_ID
+docker tag $JOB_BASE_NAME:$BUILD_ID $_DOCKERREPO/$JOB_BASE_NAME:latest
+docker push $_DOCKERREPO/$JOB_BASE_NAME:$BUILD_ID
+docker push $_DOCKERREPO/$JOB_BASE_NAME:latest
+docker rmi $_DOCKERREPO/$JOB_BASE_NAME:$BUILD_ID
+docker rmi $_DOCKERREPO/$JOB_BASE_NAME:latest
+docker rmi $JOB_BASE_NAME:$BUILD_ID
+
+ssh centos@${_DOCKERHOST} &quot;sudo docker login -u $_DOCKERUSER -p $_DOCKERPW $_DOCKERREPO &amp;&amp; sudo docker stop $JOB_BASE_NAME || true &amp;&amp; sudo docker rm $JOB_BASE_NAME || true&quot;
+ssh centos@${_DOCKERHOST} &quot;sudo docker pull $_DOCKERREPO/$JOB_BASE_NAME:$BUILD_ID&quot;
+ssh centos@${_DOCKERHOST} &quot;sudo docker run --rm --name $JOB_BASE_NAME -d -p $_DOCKERPORT:$_HOSTPORT $_DOCKERREPO/$JOB_BASE_NAME:$BUILD_ID&quot;
+</command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers/>
+  <buildWrappers>
+    <org.jenkinsci.plugins.credentialsbinding.impl.SecretBuildWrapper plugin="credentials-binding@1.12">
+      <bindings>
+        <org.jenkinsci.plugins.credentialsbinding.impl.StringBinding>
+          <credentialsId>docker_repo_aws</credentialsId>
+          <variable>_DOCKERREPO</variable>
+        </org.jenkinsci.plugins.credentialsbinding.impl.StringBinding>
+        <org.jenkinsci.plugins.credentialsbinding.impl.StringBinding>
+          <credentialsId>docker_user_aws</credentialsId>
+          <variable>_DOCKERUSER</variable>
+        </org.jenkinsci.plugins.credentialsbinding.impl.StringBinding>
+        <org.jenkinsci.plugins.credentialsbinding.impl.StringBinding>
+          <credentialsId>docker_pw_aws</credentialsId>
+          <variable>_DOCKERPW</variable>
+        </org.jenkinsci.plugins.credentialsbinding.impl.StringBinding>
+      </bindings>
+    </org.jenkinsci.plugins.credentialsbinding.impl.SecretBuildWrapper>
+  </buildWrappers>
+</project>

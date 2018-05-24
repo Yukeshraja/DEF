@@ -1,0 +1,19 @@
+[{
+            "name": "bank_remitter_dtls_id",
+            "type": "string",
+            "format": "",
+            "description": "",
+            "enum": "",
+            "tabIndex": "",
+            "regex": "",
+            "required": "",
+            "focusAction": "",
+            "focusOutAction": "",
+            "keyOutAction": "",
+            "onLoadAction": "",
+            "onClickAction": "",
+            "serviceUrl": "",
+            "styles": {
+                "style": "FSField"
+            }
+}]

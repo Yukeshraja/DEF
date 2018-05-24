@@ -1,0 +1,130 @@
+import React , { Component } from 'react';
+import MaterialCheckbox, {
+  MaterialCheckboxWithData
+} from "../components/checkbox/materialcheckbox";
+import DropDown, { DropDownWithData } from "../components/dropdown";
+import MaterialRadio, { RadioWithData } from "../components/radio/materialradiobutton";
+import MaterialTextField from '../components/textfield';
+import { Card, CardTitle } from "material-ui/Card";
+import RaisedButton from 'material-ui/RaisedButton';
+import { connect } from 'react-redux'
+import * as actions from "../actions";
+import { compose } from "redux";
+import { fetchData } from "../components/HOC/fetchData";
+import {
+  post,
+  handleResponseError,
+  convertJSON,
+  Loader,
+  capitalize
+} from "../utils";
+
+const style = {
+  margin: 12,
+};
+
+
+{{#each fieldSetData as fieldData}}
+                 
+              
+class {{title}} extends React.Component  {
+
+  constructor(props) {
+    super(props);
+      this.handleClick = this.handleClick.bind(this);
+  }
+
+
+  handleClick() {
+    const { apiUrl1, reduxFormData } = this.props;
+    var apiName = '{{title}}';
+    var apiUrl =`http://192.168.91.51:8001/api/${apiName}`;
+    alert(apiUrl)
+    alert(reduxFormData)
+    
+    post(apiUrl, reduxFormData)
+      .then(handleResponseError)
+      .then(convertJSON)
+      .then(response => {
+        this.setState({
+          isSubmitting: false,
+          errorSubmitting: false,
+          submitResponse: response
+        });
+        this.props.fetchData(
+          "tableData",
+          `http://192.168.91.51:8001/api/${apiName}`
+        );
+      })
+      .catch(error => {
+        console.error(error);
+        this.setState({ isSubmitting: false, errorSubmitting: true });
+     });
+    }
+
+    render() {
+        return (
+              <div>
+                   <Card>
+                          <CardTitle key="title" title="{{upperCase title}}" style=\{{ textTransform : 'upppercase'}} />
+                          {{#each field as fieldItem}}
+                                    {{#if_eq fieldType "textBox"}}
+                                    <div style=\{{ padding : '10px'}}>
+                                      <MaterialTextField path={ {{{json fieldData.path}}} } key="{{fieldItem.name}}" style={ {{{json fieldItem.styles}}} } name="{{fieldItem.name}}" floatingLabelText="{{upperCase fieldItem.labelName}}" style=\{{ width : '100%'}}/>
+                                    </div>
+                                    {{/if_eq}}
+                                    {{#if_eq fieldType "dropdown"}}
+                                          {{#if enum}}
+                                             <div style=\{{ padding : '10px' , marginLeft : '10px'}}>
+                                                <DropDown path={ {{{json fieldData.path}}} } key="{{fieldItem.name}}" style={ {{{json fieldItem.styles}}} } name="{{fieldItem.name}}" options={ {{{json fieldItem.enum}}} } />
+                                             </div>
+                                          {{else}}
+                                             <div style=\{{ padding : '10px', marginLeft : '10px'}}>
+                                                <DropDownWithData path={ {{{json fieldData.path}}} } key="{{fieldItem.name}}" style={ {{{json fieldItem.styles}}} } name="{{fieldItem.name}}" url="{{{fieldItem.serviceUrl}}}"/>
+                                             </div>
+                                          {{/if}}
+                                    {{/if_eq}}
+                                    {{#if_eq fieldType "checkbox"}}
+                                          {{#if enum}}
+                                             <div style=\{{ padding : '10px' , marginLeft : '10px'}}>
+                                                <MaterialCheckbox path={ {{{json fieldData.path}}} } key="{{fieldItem.name}}"  style={ {{{json fieldItem.styles}}} }       name="{{fieldItem.name}}" options={ {{{json fieldItem.enum}}} } />
+                                             </div>
+                                          {{else}}
+                                             <div style=\{{ padding : '10px', marginLeft : '10px'}}>
+                                                <MaterialCheckboxWithData path={ {{{json fieldData.path}}} } key="{{fieldItem.name}}" style={ {{{json fieldItem.styles}}} } name="{{fieldItem.name}}" url="{{{fieldItem.serviceUrl}}}"/>
+                                             </div>
+                                          {{/if}}
+                                    {{/if_eq}}
+                                    {{#if_eq fieldType "radio"}}
+                                          {{#if enum}}
+                                             <div style=\{{ padding : '10px' , marginLeft : '10px'}}>
+                                                <MaterialRadio path={ {{{json fieldData.path}}} } key="{{fieldItem.name}}" style={ {{{json fieldItem.styles}}} } name="{{fieldItem.name}}" options={ {{{json fieldItem.enum}}} } />
+                                             </div>
+                                          {{else}}
+                                             <div style=\{{ padding : '10px', marginLeft : '10px'}}>
+                                                <RadioWithData path={ {{{json fieldData.path}}} } key="{{fieldItem.name}}" style={ {{{json fieldItem.styles}}} } name="{{fieldItem.name}}" url="{{{fieldItem.serviceUrl}}}"/>
+                                             </div>
+                                          {{/if}}
+                                    {{/if_eq}}
+                          {{/each}}
+                              <div>
+                                  <RaisedButton label="Submit" primary={true} style={style} onClick={this.handleClick}/>
+                              </div>
+                      </Card>
+                
+            </div>  
+
+        )
+
+    }
+}
+
+const mapStateToProps = (state, ownProps) => {
+  return {
+    reduxFormData: state.form.get("{{title}}", {})
+  };
+};
+
+export default connect(mapStateToProps, actions)({{title}});
+  
+{{/each}}

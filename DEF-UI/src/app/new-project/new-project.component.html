@@ -1,0 +1,291 @@
+<div class="container fnt">
+  <header class="page-header">
+    <h1>Create New Project</h1>
+  </header>
+
+  <ul class="timeline">
+    <li>
+      <div class="tl-circ"></div>
+      <div class="timeline-panel">
+        <div class="tl-heading">
+          <h4>Name your Project</h4>
+        </div>
+        <div class="tl-body">
+          <div class="col-md-2"></div>
+          <div class="col-md-8">
+            <div class="form-group">
+              <label for="Project Name"></label>
+              <input type="text" class="form-control" [(ngModel)]="Newproject.Name" placeholder="Project Name">
+            </div>
+          </div>
+          <div class="col-md-2"></div>
+        </div>
+      </div>
+    </li>
+
+    <li class="timeline-inverted">
+      <div class="tl-circ"></div>
+      <div class="timeline-panel">
+        <div class="tl-heading">
+          <h4>Select Team Members</h4>
+        </div>
+        <div class="tl-body">
+          <div class="form-group">
+            <label></label>
+            <angular2-multiselect [data]="dropdownList" [(ngModel)]="Newproject.TeamMembers" [settings]="dropdownSettings"></angular2-multiselect>
+          </div>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="tl-circ"></div>
+      <div class="timeline-panel">
+        <div class="tl-heading">
+          <h4>Build Packs</h4>
+        </div>
+        <div class="tl-body">
+          <div class="col-md-2"></div>
+          <div class="col-md-8">
+            <div class="form-group">
+              <label for="buildpack"></label>
+              <select class="form-control" [(ngModel)]="Newproject.Buildpacks.Name">
+                <option value="java">Java</option>
+                <option disabled>NodeJs</option>
+                <option disabled>PHP</option>
+                <option disabled>Static FIle</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="buildtool">BuildTool</label>
+              <select class="form-control" [(ngModel)]="Newproject.Buildpacks.Buildtool">
+                <option value="Maven">Maven</option>
+                <option disabled>Gradle</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="packaging">Packaging</label>
+              <select class="form-control" [(ngModel)]="Newproject.Buildpacks.Packaging">
+                <option value="war">WAR</option>
+                <option value="jar">JAR</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="Java">Java Version</label>
+              <select class="form-control" [(ngModel)]="Newproject.Buildpacks.Version">
+                <option value="1.6">1.6</option>
+                <option value="1.7">1.7</option>
+                <option value="1.8">1.8</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-2"></div>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="tldate">SCM</div>
+    </li>
+
+    <li class="timeline-inverted">
+      <div class="timeline-panel">
+        <div class="tl-heading">
+          <h4>Source Code Management</h4>
+        </div>
+        <div class="tl-body">
+          <div class="col-md-2"></div>
+          <div class="col-md-8">
+            <div class="form-group">
+              <label for="scm"></label>
+              <select class="form-control" [(ngModel)]="Newproject.SCM.Name">
+              <option value="github">Github</option>
+              <option disabled>Gitlab</option>
+              <option disabled>SVN</option>
+            </select>
+            </div>
+            <div class="form-group">
+              <label for="Link"></label>
+              <input type="text" class="form-control" placeholder="Github Link" [(ngModel)]="Newproject.SCM.Link">
+            </div>
+            <div class="form-group">
+              <label for="username"></label>
+              <input type="text" class="form-control" placeholder="Username" [(ngModel)]="Newproject.SCM.Username">
+            </div>
+            <div class="form-group">
+              <label for="password"></label>
+              <input type="password" class="form-control" placeholder="Password" [(ngModel)]="Newproject.SCM.Password">
+            </div>
+          </div>
+          <div class="col-md-2"></div>
+        </div>
+      </div>
+    </li>
+
+    <li>
+      <div class="tldate">CI / CD</div>
+    </li>
+    <li>
+      <div class="tl-circ"></div>
+      <div class="timeline-panel">
+        <div class="tl-heading">
+          <h4>CI/CD Tool</h4>
+        </div>
+        <div class="tl-body">
+          <div class="col-md-2"></div>
+          <div class="col-md-8">
+            <div class="form-group">
+              <label for="CICD"></label>
+              <select class="form-control" [(ngModel)]="Newproject.CI.Name">
+                <option value="concourse">Concourse</option>
+                <option value="jenkins">Jenkins</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="Link"></label>
+              <input type="text" class="form-control" placeholder="Link" [(ngModel)]="Newproject.CI.Link">
+            </div>
+            <div class="form-group">
+              <label for="username"></label>
+              <input type="text" class="form-control" placeholder="Username" [(ngModel)]="Newproject.CI.Username">
+            </div>
+            <div class="form-group">
+              <label for="password"></label>
+              <input type="password" class="form-control" placeholder="Password" [(ngModel)]="Newproject.CI.Password">
+            </div>
+          </div>
+          <div class="col-md-2"></div>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="tldate">Project Management</div>
+    </li>
+    <li>
+      <div class="timeline-panel noarrow">
+        <div class="tl-heading">
+          <h4>PM Tool</h4>
+        </div>
+        <div class="tl-body">
+          <div class="col-md-2"></div>
+          <div class="col-md-8">
+            <div class="form-group">
+              <label for="CICD"></label>
+              <select class="form-control" [(ngModel)]="Newproject.Pm.Name">
+                <option value="rally">Rally</option>
+                <option value="pivotal tracker">Pivotal Tracker</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="Link"></label>
+              <input type="text" class="form-control" placeholder="Link" [(ngModel)]="Newproject.Pm.Link">
+            </div>
+            <div class="form-group">
+              <label for="username"></label>
+              <input type="text" class="form-control" placeholder="Username" [(ngModel)]="Newproject.Pm.Username">
+            </div>
+            <div class="form-group">
+              <label for="password"></label>
+              <input type="password" class="form-control" placeholder="Password" [(ngModel)]="Newproject.Pm.Password">
+            </div>
+          </div>
+          <div class="col-md-2"></div>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="tldate">Continuous Delivery</div>
+    </li>
+    <li class="timeline-inverted">
+      <div class="tl-circ"></div>
+      <div class="timeline-panel">
+        <div class="tl-heading">
+          <h4>CD</h4>
+        </div>
+        <div class="tl-body">
+          <div class="col-md-2"></div>
+          <div class="col-md-8">
+            <div class="form-group">
+              <label for="CICD"></label>
+              <select class="form-control" [(ngModel)]="Newproject.CD.Platform">
+                <option value="inhouse">Inhouse</option>
+                <option value="cloud">Cloud</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-2"></div>
+        </div>
+      </div>
+    </li>
+    <li *ngIf="Newproject.CD.Platform == 'inhouse'">
+      <div class="timeline-panel noarrow">
+        <div class="tl-heading">
+          <h4>VMware Credentials</h4>
+        </div>
+        <div class="tl-body">
+          <div class="col-md-2"></div>
+          <div class="col-md-8">
+            <div class="form-group">
+              <label for="VMware"></label>
+              <select class="form-control" [(ngModel)]="Newproject.CD.Name">
+                <option value="VMware">VMware</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="Link"></label>
+              <input type="text" class="form-control" placeholder="Link" [(ngModel)]="Newproject.CD.Link">
+            </div>
+            <div class="form-group">
+              <label for="username"></label>
+              <input type="text" class="form-control" placeholder="Username" [(ngModel)]="Newproject.CD.Username">
+            </div>
+            <div class="form-group">
+              <label for="password"></label>
+              <input type="password" class="form-control" placeholder="Password" [(ngModel)]="Newproject.CD.Password">
+            </div>
+          </div>
+          <div class="col-md-2"></div>
+        </div>
+      </div>
+    </li>
+      <li class="timeline-inverted" *ngIf="Newproject.CD.Platform == 'cloud'">
+        <div class="tl-circ"></div>
+        <div class="timeline-panel">
+          <div class="tl-heading">
+            <h4>Choose Your Cloud</h4>
+          </div>
+          <div class="tl-body">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+              <div class="form-group">
+                <label for="scm"></label>
+                <select class="form-control" [(ngModel)]="Newproject.CD.Name">
+              <option value="pcf">Pivotal Cloud Foundry</option>
+              <option disabled>Amazon Web Services</option>
+              <option disabled>Microsoft Azure</option>
+              <option disabled>OpenStack Cloud</option>
+              <option disabled>Google Cloud Platform</option>
+              <option disabled>DigitalOcean</option>
+              <option disabled>VMware</option>
+            </select>
+              </div>
+              <div class="form-group">
+                <label for="Link"></label>
+                <input type="text" class="form-control" placeholder="Link" [(ngModel)]="Newproject.CD.Link">
+              </div>
+              <div class="form-group">
+                <label for="username"></label>
+                <input type="text" class="form-control" placeholder="Username" [(ngModel)]="Newproject.CD.Username">
+              </div>
+              <div class="form-group">
+                <label for="password"></label>
+                <input type="password" class="form-control" placeholder="Password" [(ngModel)]="Newproject.CD.Password">
+              </div>
+            </div>
+            <div class="col-md-2"></div>
+          </div>
+        </div>
+    </li>
+    <li>
+      <button type="submit" class="btn btn-primary tldate2">Build</button>
+    </li>
+  </ul>
+</div>

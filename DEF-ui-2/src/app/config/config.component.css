@@ -1,0 +1,201 @@
+.fnt {
+    text-align: center;
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+.project-category-tile {
+    padding-top: 20px;
+    text-align: center;
+    background: white;
+    border: 1px solid #D3DEE9;
+    box-shadow: 1px 1px 3px 0px rgba(51, 51, 51, 0.12);
+    border-radius: 4px;
+    margin-bottom: 20px;
+    display: block;
+    position: relative;
+    color: #30739C;
+}
+.rw{
+  margin-top: 2%;
+}
+.icon{
+    background-color: #f5f5f5;
+    width: 80px;
+    height: 80px;
+    border-radius: 100px;
+    margin-bottom: 0px;
+    margin-top: 10px;
+    display: inline-block;
+    text-align: center;
+    font-size: 40px;
+    padding: 10px;
+    color: #4a90e2;
+}
+/*input[type=radio]:checked + label>div {
+  transform:
+    rotateZ(-30deg)
+    rotateX(10deg);
+}*/
+.input-hidden {
+  position: absolute;
+  left: -9999px;
+}
+
+input[type=radio]:checked + label>div {
+  /*border: 1px solid #fff;
+  box-shadow: 0 0 3px 3px #4a90e2;
+  */
+      color: #fff;
+      background-color: #337ab7;
+      border-color: #fff;
+}
+.btn-p {
+    color: #337ab7;
+    background-color: #fff;
+    border-color: #2e6da4;
+    min-width: 185px;
+    min-height: 50px;
+    /* text-align: center; */
+    padding: 15px;
+}
+.panel-info>.panel-heading {
+    color: #31708f;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+    min-height: 120px;
+    min-width: 220px;
+    text-align: center;
+}
+.panel-info>.panel-heading>.panel-title{
+  padding-top: 35px;
+  font-family: monospace;
+  font-weight: bold;
+}
+.head{
+  text-align: center;
+color: #111; font-family: 'Open Sans Condensed', sans-serif;
+  font-style: normal;
+  font-size: 20px;
+  padding-bottom: 15px;
+}
+
+
+.pricingTable{
+    text-align: center;
+    background: #727cb6;
+    padding-top: 5px;
+    transition: all 0.5s ease-in-out 0s;
+}
+.pricingTable > .pricingTable-header{
+    color:#fff;
+    background: #273238;
+    height: 190px;
+    position: relative;
+    transition: all 0.5s ease 0s;
+}
+.pricingTable > .pricingTable-header:after{
+    content: "";
+    border-bottom: 40px solid #727cb6;
+    border-left: 263px solid transparent;
+    position: absolute;
+    right:0px;
+    bottom: 0px;
+}
+.pricingTable:hover .pricingTable-header{
+    height: 230px;
+    transition: all 0.5s ease 0s;
+}
+.pricingTable-header > .heading{
+    display: block;
+    padding: 20px 0;
+}
+.heading > h3{
+    margin: 0;
+    text-transform: uppercase;
+}
+.pricingTable-header > .price-value{
+    display: block;
+    font-size: 60px;
+    line-height: 60px;
+}
+.pricingTable-header > .price-value > .mo{
+    font-size: 14px;
+    display: block;
+    line-height: 0px;
+    text-transform: uppercase;
+}
+.pricingTable-header > .price-value > .currency{
+    font-size: 24px;
+    margin-right: 4px;
+    position: relative;
+    bottom:30px;
+}
+.pricingTable > .pricingContent{
+    text-transform: uppercase;
+    color:#fff
+}
+.pricingTable > .pricingContent > ul{
+    list-style: none;
+    padding: 0;
+}
+.pricingTable > .pricingContent > ul > li{
+    padding: 15px 0;
+    border-bottom: 1px solid #fff;
+}
+.pricingTable > .pricingContent > ul > li:last-child{
+    border: 0px none;
+}
+.pricingTable-sign-up{
+    padding: 30px 0;
+}
+.pricingTable-sign-up > .btn-block{
+    width: 80%;
+    margin: 0 auto;
+    background: #273238;
+    border:2px solid #fff;
+    color:#fff;
+    padding: 15px 12px;
+    text-transform: uppercase;
+    font-size: 18px;
+}
+.pricingTable-sign-up > .btn-block:hover{
+    opacity: 0.9;
+}
+.pink{
+    background: #ed687c;
+}
+.pink .pricingTable-header:after{
+    border-bottom-color: #ed687c;
+}
+.orange{
+    background: #e67e22;
+}
+.orange .pricingTable-header:after{
+    border-bottom-color: #e67e22;
+}
+.blue{
+    background: #3498db;
+}
+.blue .pricingTable-header:after{
+    border-bottom-color: #3498db;
+}
+@media screen and (max-width: 1200px){
+    .pricingTable > .pricingTable-header:after{
+        border-left: 215px solid transparent;
+    }
+}
+@media screen and (max-width: 990px){
+    .pricingTable{
+        margin-bottom: 20px;
+    }
+    .pricingTable > .pricingTable-header:after{
+        border-left: 349px solid transparent;
+    }
+}
+@media screen and (max-width: 480px){
+    .pricingTable{
+        overflow: hidden;
+    }
+    .pricingTable > .pricingTable-header:after {
+        border-left: 459px solid rgba(0, 0, 0, 0);
+    }
+}

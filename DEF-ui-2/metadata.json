@@ -1,0 +1,13 @@
+{
+	"DEF": {
+		"DEV" : {
+			"apiservices" : "https://2-platform.altimetrik.com"
+		},
+		"UAT" : {
+			"apiservices" : "https://2-platform.altimetrik.com"
+		},
+		"PRD" : {
+			"apiservices" : "https://2-platform.altimetrik.com"
+		}	 
+	}
+}

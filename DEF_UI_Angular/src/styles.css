@@ -1,0 +1,46 @@
+/* You can add global styles to this file, and also import other style files */
+
+.alignleft {
+	float: left;
+}
+
+
+.figure:before{
+    content:'';
+    position:absolute;
+    top:55px;
+    left:0;
+    width:100%;
+    height:2px;
+    background:#ccc;
+}
+
+.content-box-gray .content {
+    overflow: hidden;
+    padding: 10px;
+    font-size: 15px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: 1px solid gray;
+    color: #3385FF;
+}
+.content-box-gray .title {
+    height:50px;
+    line-height:30px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background:gray;
+    font-size:18px;
+    font-weight:bold;
+    font-family:verdana;
+    display:block;
+    color:white;
+    display:block;
+    padding:10px;
+    border: 1px solid gray;
+    border-bottom:none;
+}
+.errortext{
+    color: red;
+    text-align: left;
+}

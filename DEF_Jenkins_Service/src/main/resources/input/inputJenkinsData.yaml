@@ -1,0 +1,7 @@
+# url: "sgandra"
+# name: "*/sgandra"
+# trigger: "0 20 * * *"
+
+url: "https://github.com/kannan0501/HelloWorld.git"
+name: "*/master"
+# trigger: "0 0 * * *"

@@ -1,0 +1,13 @@
+{
+	"DEF": {
+		"DEV" : {
+			"apiservices" : "http://192.168.91.61:8900"
+		},
+		"UAT" : {
+			"apiservices" : "http://1-deflb2-1766551084.us-east-1.elb.amazonaws.com"
+		},
+		"PRD" : {
+			"apiservices" : ""
+		}	 
+	}
+}

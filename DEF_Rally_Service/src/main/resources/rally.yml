@@ -1,0 +1,6 @@
+
+#API Key for user
+properties.rallyapikey : Replace This With Your Rally API Key
+
+#Rally URL
+properties.rallylink : https://rally1.rallydev.com

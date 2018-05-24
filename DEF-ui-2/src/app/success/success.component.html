@@ -1,0 +1,56 @@
+<div class="container fnt">
+<div id="content">
+  <!-- Icons source http://dribbble.com/shots/913555-Flat-Web-Elements -->
+
+  <div class="row">
+
+  <div *ngIf="true"class="col-md-4 textleft">
+    
+  
+                        <h4 class="card-title textcenter"><strong>Summary</strong></h4>
+                        <hr>
+                        <div class="row">
+                        <div class="col-md-6">Project Name:</div>
+                        <div class="col-md-6">{{datavalid.Name}}</div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                        <div class="col-md-6">BuildTool:</div>
+                        <div class="col-md-6">{{datavalid.Buildpacks.Buildtool}}</div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                        <div class="col-md-6">Source Code Mangement:</div>
+                        <div class="col-md-6">{{datavalid.SCM.Name}}</div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                        <div class="col-md-6">Continuous Integration:</div>
+                        <div class="col-md-6">{{datavalid.ConnectTo}}</div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                        <div class="col-md-6">Project Management Tool:</div>
+                        <div class="col-md-6">{{datavalid.Pm.Name}}</div>
+                        </div>
+                    </div>
+
+  <div class="col-md-8">
+    <div class="notify successbox borderchange">
+    <h1>Success!</h1>
+    <span class="alerticon"><img src="http://s22.postimg.org/i5iji9hv1/check.png" alt="checkmark" /></span>
+    <p>Project Build Completed Successfully to view your project Check your Repositorys and Email for Additional Information</p>
+    <div class="parent-data">
+      Data from parent view : <b>{{ incomingData | json  }}</b>
+  </div>
+    <a href="project" class="btn btn-primary">Build New</a>    
+    <a href="getJob" class="btn btn-primary">Get Job</a>
+  </div>
+
+
+  </div>
+
+  
+</div>
+</div>
+</div>

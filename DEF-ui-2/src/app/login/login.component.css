@@ -1,0 +1,59 @@
+.cnt{
+  margin-top: 10%;
+}
+.island, .island-landscape {
+    margin-top: 17px;
+}
+.island .island-content {
+    width: 196px;
+    margin: 0 auto;
+}
+form {
+    margin-bottom: 8px;
+}
+
+input[type="submit"] {
+    -webkit-appearance: button;
+    cursor: pointer;
+}
+input {
+    display: block;
+    margin-bottom: 20px;
+}
+input, button, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+.saml-login {
+    border-bottom: 1px solid #cccccc;
+    color: #cccccc;
+    font-size: 11px;
+    line-height: 18px;
+    margin-bottom: 10px;
+    padding: 10px 0;
+}
+.left {
+    display: inline-block;
+    text-align: left;
+    width: 50%;
+}
+.right {
+    display: inline-block;
+    text-align: right;
+    width: 50%;
+}
+.link-lowlight {
+    color: #7f7f7f;
+    font-size: 13px;
+    font-weight: 300;
+}
+.island {
+    position: relative;
+    text-align: center;
+}
+.btalt{
+    min-width: 194px;
+    min-height: 40px;
+    padding: 10px;
+}

@@ -1,0 +1,31 @@
+.menu {
+  float:left;
+  padding: 50px;
+  min-height:  500px;
+  width: 25%;
+  background:#f1ede4;
+}
+
+.menu .menu_heading {
+        text-transform: uppercase;
+        padding : 10px;
+        font-size: 30px;
+}
+
+.menu .menu_items {
+          padding-left:30%;
+          font-size: 20px;
+}
+
+.menu_items a {
+        text-decoration: none;
+}
+
+.menu_items a:hover {
+        text-decoration: underline;
+}
+
+.menu_items li {
+      line-height: 25px;
+      text-align: left;
+}

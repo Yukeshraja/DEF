@@ -1,0 +1,692 @@
+<header class="navbar navbar-static-top bs-docs-nav Alnav" id="top" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+      <a href="NewProject" class="navbar-brand">Developer Enablement Framework 2.0</a>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="NewProject">Build New Project</a>
+        </li>
+        <li class="dropdown" class="active">
+          <a href="javascript:" data-toggle="dropdown">
+                        Other
+                        <span class="caret"></span>
+                    </a>
+          <ul class="dropdown-menu">
+            <li><a href="getJob">Get Jobs</a></li>
+            <li><a href="passwordManagement">Password Management</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <!-- Localization -->
+        <li>
+          <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="language">Admin</span> <span class="caret"></span>
+                    </a>
+          <ul class="dropdown-menu">
+
+            <li data-language="en">
+              <a href="login">
+                                Logout
+                            </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<!-- <div class="container fnt">
+  <header class="page-header">
+    <h1>Create New Project</h1>
+  </header>
+
+  <ul class="timeline">
+    <li>
+      <div class="tl-circ"></div>
+      <div class="timeline-panel">
+        <div class="tl-heading">
+          <h4>Name your Project</h4>
+        </div>
+        <div class="tl-body">
+          <div class="col-md-2"></div>
+          <div class="col-md-8">
+            <div class="form-group">
+              <label for="Project Name"></label>
+              <input type="text" class="form-control" [(ngModel)]="Newproject.Name" placeholder="Project Name">
+            </div>
+          </div>
+          <div class="col-md-2"></div>
+        </div>
+      </div>
+    </li>
+
+    <li class="timeline-inverted">
+      <div class="tl-circ"></div>
+      <div class="timeline-panel">
+        <div class="tl-heading">
+          <h4>Select Team Members</h4>
+        </div>
+        <div class="tl-body">
+          <div class="form-group">
+            <label></label>
+            <angular2-multiselect [data]="dropdownList" [(ngModel)]="Newproject.TeamMembers" [settings]="dropdownSettings"></angular2-multiselect>
+          </div>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="tl-circ"></div>
+      <div class="timeline-panel">
+        <div class="tl-heading">
+          <h4>Build Packs</h4>
+        </div>
+        <div class="tl-body">
+          <div class="col-md-2"></div>
+          <div class="col-md-8">
+            <div class="form-group">
+              <label for="buildpack"></label>
+              <select class="form-control" [(ngModel)]="Newproject.Buildpacks.Name">
+                <option value="java">Java</option>
+                <option disabled>NodeJs</option>
+                <option disabled>PHP</option>
+                <option disabled>Static FIle</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="buildtool">BuildTool</label>
+              <select class="form-control" [(ngModel)]="Newproject.Buildpacks.Buildtool">
+                <option value="Maven">Maven</option>
+                <option value="Gradle">Gradle</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="pom.xml">Build Path</label>
+              <input type="text" class="form-control" [(ngModel)]="Newproject.Buildpacks.PomXml" placeholder="BuildPath">
+            </div>
+          </div>
+          <div class="col-md-2"></div>
+        </div>
+      </div>
+    </li>
+
+    <li>
+      <div class="tl-circ"></div>
+      <div class="timeline-panel">
+        <div class="tl-heading">
+          <h4>Comments</h4>
+        </div>
+        <div class="tl-body">
+          <div class="col-md-2"></div>
+          <div class="col-md-8">
+            <div class="form-group">
+              <label for="build"></label>
+              <div class="row">
+                <div class="funkyradio">
+                  <div class="funkyradio-info">
+                    <input type="checkbox" name="Clean"  [(ngModel)]="Newproject.BuildFaces.Clean" id="Clean" />
+                    <label for="Clean">Clean</label>
+                  </div>
+                  <div class="funkyradio-info">
+                    <input type="checkbox" name="Compile"  [(ngModel)]="Newproject.BuildFaces.Compile" id="Compile" />
+                    <label for="Compile">Compile</label>
+                  </div>
+                  <div class="funkyradio-info">
+                    <input type="checkbox" name="Build"  [(ngModel)]="Newproject.BuildFaces.Build" id="Build" />
+                    <label for="Build">Build</label>
+                  </div>
+                  <div class="funkyradio-info">
+                    <input type="checkbox" name="validate"  [(ngModel)]="Newproject.BuildFaces.validate" id="validate" />
+                    <label for="validate">Validate</label>
+                  </div>
+                  <div class="funkyradio-info">
+                    <input type="checkbox" name="package"  [(ngModel)]="Newproject.BuildFaces.package" id="package" />
+                    <label for="package">Package</label>
+                  </div>
+                  <div class="funkyradio-info">
+                    <input type="checkbox" name="install"  [(ngModel)]="Newproject.BuildFaces.install" id="install" />
+                    <label for="install">Install</label>
+                  </div>
+                  <div class="funkyradio-info">
+                    <input type="checkbox" name="test"  [(ngModel)]="Newproject.BuildFaces.test" id="test" />
+                    <label for="test">Test</label>
+                  </div>
+                  <div class="funkyradio-info">
+                    <input type="checkbox" name="deploy"  [(ngModel)]="Newproject.BuildFaces.deploy" id="deploy" />
+                    <label for="deploy">Deploy</label>
+                  </div>
+                  <div class="funkyradio-info">
+                    <input type="checkbox" name="dockerBuild"  [(ngModel)]="Newproject.BuildFaces.dockerBuild" id="dockerBuild" />
+                    <label for="deploy">Docker Build</label>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="dockerServer"></label>
+                  <input type="text" class="form-control" placeholder="Docker Server" [(ngModel)]="Newproject.BuildFaces.dockerServer">
+                </div>
+                <div class="form-group">
+                  <label for="dockerPort"></label>
+                  <input type="text" class="form-control" placeholder="Docker Port" [(ngModel)]="Newproject.BuildFaces.dockerPort">
+                </div>
+                <div class="form-group">
+                  <label for="dockerImageName"></label>
+                  <input type="text" class="form-control" placeholder="Docker ImageName" [(ngModel)]="Newproject.BuildFaces.dockerImageName">
+                </div>
+                <div class="form-group">
+                  <label for="appPortNumber"></label>
+                  <input type="text" class="form-control" placeholder="App PortNumber" [(ngModel)]="Newproject.BuildFaces.appPortNumber">
+                </div>
+                <div class="form-group">
+                  <label for="dockerPortNumber"></label>
+                  <input type="text" class="form-control" placeholder="Docker PortNumber" [(ngModel)]="Newproject.BuildFaces.dockerPortNumber">
+                </div>
+                <div class="form-group">
+                <label for="extraArgs">Extra Args</label>
+                <textarea class="form-control" [(ngModel)]="Newproject.BuildFaces.extraArgs" rows="4" id="extraArgs"></textarea>
+              </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-2"></div>
+        </div>
+      </div>
+    </li>
+
+    <li>
+      <div class="tldate">SCM</div>
+    </li>
+
+    <li class="timeline-inverted">
+      <div class="timeline-panel">
+        <div class="tl-heading">
+          <h4>Source Code Management</h4>
+        </div>
+        <div class="tl-body">
+          <div class="col-md-2"></div>
+          <div class="col-md-8">
+            <div class="form-group">
+              <label for="scm"></label>
+              <select class="form-control" [(ngModel)]="Newproject.SCM.Name">
+              <option value="github">Github</option>
+              <option value="gitlab">Gitlab</option>
+              <option disabled>SVN</option>
+            </select>
+            </div>
+            <div class="form-group">
+              <label for="Link"></label>
+              <input type="text" class="form-control" placeholder="Github Link" [(ngModel)]="Newproject.SCM.Link">
+            </div>
+            <div class="form-group">
+              <label for="username"></label>
+              <input type="text" class="form-control" placeholder="Username" [(ngModel)]="Newproject.SCM.Username">
+            </div>
+            <div class="form-group">
+              <label for="password"></label>
+              <input type="password" class="form-control" placeholder="Password" [(ngModel)]="Newproject.SCM.Password">
+            </div>
+          </div>
+          <div class="col-md-2"></div>
+        </div>
+      </div>
+    </li>
+
+    <li>
+      <div class="tldate">CI / CD</div>
+    </li>
+    <li>
+      <div class="tl-circ"></div>
+      <div class="timeline-panel">
+        <div class="tl-heading">
+          <h4>CI/CD Tool</h4>
+        </div>
+        <div class="tl-body">
+          <div class="col-md-2"></div>
+          <div class="col-md-8">
+            <div class="form-group">
+              <label for="CICD"></label>
+              <select class="form-control" [(ngModel)]="Newproject.ConnectTo">
+                <option value="concourse">Concourse</option>
+                <option value="jenkins">Jenkins</option>
+              </select>
+            </div>
+            <div *ngIf="Newproject.ConnectTo == 'jenkins'">
+            <div class="form-group">
+              <label for="Link"></label>
+              <input type="text" class="form-control" placeholder="Link" [(ngModel)]="Newproject.Jenkins.JenkinsURL">
+            </div>
+            <div class="form-group">
+              <label for="username"></label>
+              <input type="text" class="form-control" placeholder="Username" [(ngModel)]="Newproject.Jenkins.JenkinsUsername">
+            </div>
+            <div class="form-group">
+              <label for="password"></label>
+              <input type="password" class="form-control" placeholder="Password" [(ngModel)]="Newproject.Jenkins.JenkinsPassword">
+            </div>
+            <div class="form-group">
+              <label for="ArtifactoryUrl"></label>
+                <input type="text" class="form-control" [(ngModel)]="Newproject.Jenkins.ArtifactoryUrl" placeholder="Artifactory Url">
+            </div>
+            <div class="form-group">
+              <label for="TargetReleaseSynatax"></label>
+                <input type="text" class="form-control" [(ngModel)]="Newproject.Jenkins.TargetReleaseSynatax" placeholder="Target release syntax">
+            </div>
+            <div class="form-group">
+              <label for="TargetSnapshotSyntax"></label>
+                <input type="text" class="form-control" [(ngModel)]="Newproject.Jenkins.TargetSnapshotSyntax" placeholder="Target snapshot syntax">
+            </div>
+            </div>
+
+            <div *ngIf="Newproject.ConnectTo == 'concourse'">
+            <div class="form-group">
+              <label for="Link"></label>
+              <input type="text" class="form-control" placeholder="Link" [(ngModel)]="Newproject.Concourse.ConcourseURL">
+            </div>
+            <div class="form-group">
+              <label for="username"></label>
+              <input type="text" class="form-control" placeholder="Username" [(ngModel)]="Newproject.Concourse.ConcourseUsername">
+            </div>
+            <div class="form-group">
+              <label for="password"></label>
+              <input type="password" class="form-control" placeholder="Password" [(ngModel)]="Newproject.Concourse.ConcoursePassword">
+            </div>
+            </div>
+
+
+          </div>
+          <div class="col-md-2"></div>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="tldate">Project Management</div>
+    </li>
+    <li>
+      <div class="timeline-panel noarrow">
+        <div class="tl-heading">
+          <h4>PM Tool</h4>
+        </div>
+        <div class="tl-body">
+          <div class="col-md-2"></div>
+          <div class="col-md-8">
+            <div class="form-group">
+              <label for="CICD"></label>
+              <select class="form-control" [(ngModel)]="Newproject.Pm.Name">
+                <option value="rally">Rally</option>
+                <option value="pivotal tracker">Pivotal Tracker</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="Link"></label>
+              <input type="text" class="form-control" placeholder="Link" [(ngModel)]="Newproject.Pm.Link">
+            </div>
+            <div class="form-group">
+              <label for="username"></label>
+              <input type="text" class="form-control" placeholder="Username" [(ngModel)]="Newproject.Pm.Username">
+            </div>
+            <div class="form-group">
+              <label for="password"></label>
+              <input type="password" class="form-control" placeholder="Password" [(ngModel)]="Newproject.Pm.Password">
+            </div>
+          </div>
+          <div class="col-md-2"></div>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="tldate">Continuous Delivery</div>
+    </li>
+    <li class="timeline-inverted">
+      <div class="tl-circ"></div>
+      <div class="timeline-panel">
+        <div class="tl-heading">
+          <h4>CD</h4>
+        </div>
+        <div class="tl-body">
+          <div class="col-md-2"></div>
+          <div class="col-md-8">
+            <div class="form-group">
+  <label for="comment">Bash:</label>
+  <textarea class="form-control" [(ngModel)]="Newproject.CD.bash" rows="5" id="comment"></textarea>
+</div>
+          </div>
+          <div class="col-md-2"></div>
+        </div>
+      </div>
+    </li>
+    <li>
+      <button type="submit" (click)="myMethod(Newproject)" class="btn btn-primary tldate2">Build</button>
+    </li>
+  </ul>
+</div> -->
+<div class="container fnt">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel with-nav-tabs panel-primary">
+        <div class="panel-heading">
+          <ul class="nav nav-tabs">
+            <li class="active"><a href="#tab1primary" data-toggle="tab">ProjectName</a></li>
+            <li><a href="#tab2primary" data-toggle="tab">Select Team</a></li>
+            <li><a href="#tab3primary" data-toggle="tab">BuildPacks</a></li>
+            <li><a href="#tab4primary" data-toggle="tab">Source Code Management</a></li>
+            <li><a href="#tab5primary" data-toggle="tab">Build Command</a></li>
+            <li><a href="#tab6primary" data-toggle="tab">CI/CD</a></li>
+            <li><a href="#tab7primary" data-toggle="tab">PM Tool</a></li>
+            <li><a href="#tab8primary" data-toggle="tab">Deployment</a></li>
+            <li><a href="#tab9primary" data-toggle="tab">Summary</a></li>
+          </ul>
+        </div>
+        <div class="panel-body">
+          <div class="tab-content">
+            <div class="tab-pane fade in active" id="tab1primary">
+              <h4>Name your Project</h4>
+              <div class="col-md-2"></div>
+              <div class="col-md-8">
+                <div class="form-group">
+                  <label for="Project Name"></label>
+                  <input type="text" class="form-control" [(ngModel)]="Newproject.Name" placeholder="Project Name">
+                </div>
+              </div>
+              <div class="col-md-2"></div>
+            </div>
+            <div class="tab-pane fade" id="tab2primary">
+              <h4>Select Team Members</h4>
+              <div class="form-group">
+                <label></label>
+                <angular2-multiselect [data]="dropdownList" [(ngModel)]="Newproject.TeamMembers" [settings]="dropdownSettings"></angular2-multiselect>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="tab3primary">
+              <div class="col-md-2"></div>
+              <div class="col-md-8">
+                <div class="form-group">
+                  <label class="alignleft" for="buildpack">Build pack</label>
+                  <select class="form-control" [(ngModel)]="Newproject.Buildpacks.Name">
+                                    <option value="java">Java</option>
+                                    <option disabled>NodeJs</option>
+                                    <option disabled>PHP</option>
+                                    <option disabled>Static FIle</option>
+                                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="alignleft" for="buildtool">BuildTool</label>
+                  <select class="form-control" [(ngModel)]="Newproject.Buildpacks.Buildtool">
+                                    <option value="Maven">Maven</option>
+                                    <option value="Gradle">Gradle</option>
+                                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="alignleft" for="pom.xml">Build Path</label>
+                  <input type="text" class="form-control" [(ngModel)]="Newproject.Buildpacks.PomXml" placeholder="BuildPath">
+                </div>
+              </div>
+              <div class="col-md-2"></div>
+            </div>
+            <div class="tab-pane fade" id="tab4primary">
+              <div class="col-lg-12">
+                
+              <div class="form-group col-lg-12">
+                    <div class="form-group col-lg-4">
+                      <label class="alignleft control-label" for="scm">SCM Name</label>
+                      <select class="form-control" [(ngModel)]="Newproject.SCM.Name">
+                        <option value="github">Github</option>
+                        <option value="gitlab">Gitlab</option>
+                        <option disabled>SVN</option>
+                      </select>
+                    </div>
+              </div>     
+
+              <div class="form-group col-lg-12">
+                <div class="form-group col-lg-4">
+                    <label class="alignleft control-label" for="scm">SCM Link</label>
+                    <input type="text" class="form-control" placeholder="Github Link" [(ngModel)]="Newproject.SCM.Link">
+                </div>
+              </div>    
+
+              <div class="form-group col-lg-12">
+                  <div class="form-group col-lg-4">
+                    <label class="alignleft control-label" for="scm">SCM Auth Type</label>
+                    <select class="form-control" [(ngModel)]="Newproject.SCM.authType">
+                      <option value="up">Username & Password</option>
+                      <option value="ups">Username & Password with SSH Key</option>
+                      <option value="upss">Username, Password, SSH Key with Secrete Text</option>
+                    </select>
+                  </div>
+              </div>
+
+              <div class="form-group col-lg-12">
+                  <div class="form-group col-lg-4">
+                    <label class="alignleft control-label" for="scm">SCM Credentials</label>
+                    <select class="form-control" [(ngModel)]="Newproject.SCM.Credentials">
+                        <option *ngFor="let user of credentialsList" [value]="$index">
+                          {{user.credentialName}}
+                        </option>
+                      </select>                    
+                  </div>
+              </div>
+              <!--  
+                <div class="form-group">
+                  <label for="username"></label>
+                  <input type="text" class="form-control" placeholder="Username" [(ngModel)]="Newproject.SCM.Username">
+                </div>
+                <div class="form-group">
+                  <label for="password"></label>
+                  <input type="password" class="form-control" placeholder="Password" [(ngModel)]="Newproject.SCM.Password">
+                </div>
+              -->
+
+              </div>
+              <div class="col-md-2"></div>
+            </div>
+            <div class="tab-pane fade" id="tab5primary">
+              <div class="col-md-2"></div>
+              <div class="col-md-8">
+                <div class="form-group">
+                  <label for="build"></label>
+                  <div class="row">
+                    <div class="funkyradio">
+                      <div class="funkyradio-info">
+                        <input type="checkbox" name="Clean" [(ngModel)]="Newproject.BuildFaces.Clean" id="Clean" />
+                        <label for="Clean">Clean</label>
+                      </div>
+                      <div class="funkyradio-info">
+                        <input type="checkbox" name="Compile" [(ngModel)]="Newproject.BuildFaces.Compile" id="Compile" />
+                        <label for="Compile">Compile</label>
+                      </div>
+                      <div class="funkyradio-info">
+                        <input type="checkbox" name="Build" [(ngModel)]="Newproject.BuildFaces.Build" id="Build" />
+                        <label for="Build">Build</label>
+                      </div>
+                      <div class="funkyradio-info">
+                        <input type="checkbox" name="validate" [(ngModel)]="Newproject.BuildFaces.validate" id="validate" />
+                        <label for="validate">Validate</label>
+                      </div>
+                      <div class="funkyradio-info">
+                        <input type="checkbox" name="package" [(ngModel)]="Newproject.BuildFaces.package" id="package" />
+                        <label for="package">Package</label>
+                      </div>
+                      <div class="funkyradio-info">
+                        <input type="checkbox" name="install" [(ngModel)]="Newproject.BuildFaces.install" id="install" />
+                        <label for="install">Install</label>
+                      </div>
+                      <div class="funkyradio-info">
+                        <input type="checkbox" name="test" [(ngModel)]="Newproject.BuildFaces.test" id="test" />
+                        <label for="test">Test</label>
+                      </div>
+                      <div class="funkyradio-info">
+                        <input type="checkbox" name="deploy" [(ngModel)]="Newproject.BuildFaces.deploy" id="deploy" />
+                        <label for="deploy">Deploy</label>
+                      </div>
+                      <div class="funkyradio-info">
+                        <input type="checkbox" name="docker" [(ngModel)]="Newproject.BuildFaces.docker" id="docker" />
+                        <label for="docker">Docker</label>
+                      </div>
+                      <div class="funkyradio-info">
+                        <input type="checkbox" name="dockerBuild" [(ngModel)]="Newproject.BuildFaces.dockerBuild" id="dockerBuild" />
+                        <label for="dockerBuild">Docker Build</label>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="dockerServer"></label>
+                      <input type="text" class="form-control" placeholder="Docker Server" [(ngModel)]="Newproject.BuildFaces.dockerServer">
+                    </div>
+                    <div class="form-group">
+                      <label for="dockerPort"></label>
+                      <input type="text" class="form-control" placeholder="Docker Port" [(ngModel)]="Newproject.BuildFaces.dockerPort">
+                    </div>
+                    <div class="form-group">
+                      <label for="dockerImageName"></label>
+                      <input type="text" class="form-control" placeholder="Docker ImageName" [(ngModel)]="Newproject.BuildFaces.dockerImageName">
+                    </div>
+                    <div class="form-group">
+                      <label for="appPortNumber"></label>
+                      <input type="text" class="form-control" placeholder="App PortNumber" [(ngModel)]="Newproject.BuildFaces.appPortNumber">
+                    </div>
+                    <div class="form-group">
+                      <label for="dockerPortNumber"></label>
+                      <input type="text" class="form-control" placeholder="Docker PortNumber" [(ngModel)]="Newproject.BuildFaces.dockerPortNumber">
+                    </div>
+                    <div class="form-group">
+                      <label for="extraArgs">Extra Args</label>
+                      <textarea class="form-control" [(ngModel)]="Newproject.BuildFaces.extraArgs" rows="4" id="extraArgs"></textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2"></div>
+            </div>
+            <div class="tab-pane fade" id="tab6primary">
+              <div class="col-md-2"></div>
+              <div class="col-md-8">
+                <div class="form-group">
+                  <label for="CICD"></label>
+                  <select class="form-control" [(ngModel)]="Newproject.ConnectTo">
+                                    <option value="concourse">Concourse</option>
+                                    <option value="jenkins">Jenkins</option>
+                                  </select>
+                </div>
+                <div *ngIf="Newproject.ConnectTo == 'jenkins'">
+                  <div class="form-group">
+                    <label for="Link"></label>
+                    <input type="text" class="form-control" placeholder="Link" [(ngModel)]="Newproject.Jenkins.JenkinsURL">
+                  </div>
+                  <div class="form-group">
+                    <label for="username"></label>
+                    <input type="text" class="form-control" placeholder="Username" [(ngModel)]="Newproject.Jenkins.JenkinsUsername">
+                  </div>
+                  <div class="form-group">
+                    <label for="password"></label>
+                    <input type="password" class="form-control" placeholder="Password" [(ngModel)]="Newproject.Jenkins.JenkinsPassword">
+                  </div>
+                  <div class="form-group">
+                    <label for="ArtifactoryUrl"></label>
+                    <input type="text" class="form-control" [(ngModel)]="Newproject.Jenkins.ArtifactoryUrl" placeholder="Artifactory Url">
+                  </div>
+                  <div class="form-group">
+                    <label for="TargetReleaseSynatax"></label>
+                    <input type="text" class="form-control" [(ngModel)]="Newproject.Jenkins.TargetReleaseSynatax" placeholder="Target release syntax">
+                  </div>
+                  <div class="form-group">
+                    <label for="TargetSnapshotSyntax"></label>
+                    <input type="text" class="form-control" [(ngModel)]="Newproject.Jenkins.TargetSnapshotSyntax" placeholder="Target snapshot syntax">
+                  </div>
+                </div>
+
+                <div *ngIf="Newproject.ConnectTo == 'concourse'">
+                  <div class="form-group">
+                    <label for="Link"></label>
+                    <input type="text" class="form-control" placeholder="Link" [(ngModel)]="Newproject.Concourse.ConcourseURL">
+                  </div>
+                  <div class="form-group">
+                    <label for="username"></label>
+                    <input type="text" class="form-control" placeholder="Username" [(ngModel)]="Newproject.Concourse.ConcourseUsername">
+                  </div>
+                  <div class="form-group">
+                    <label for="password"></label>
+                    <input type="password" class="form-control" placeholder="Password" [(ngModel)]="Newproject.Concourse.ConcoursePassword">
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2"></div>
+            </div>
+            <div class="tab-pane fade" id="tab7primary">
+              <div class="col-md-2"></div>
+              <div class="col-md-8">
+                <div class="form-group">
+                  <label for="CICD"></label>
+                  <select class="form-control" [(ngModel)]="Newproject.Pm.Name">
+                                    <option value="rally">Rally</option>
+                                    <option value="pivotal tracker">Pivotal Tracker</option>
+                                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="Link"></label>
+                  <input type="text" class="form-control" placeholder="Link" [(ngModel)]="Newproject.Pm.Link">
+                </div>
+                <div class="form-group">
+                  <label for="username"></label>
+                  <input type="text" class="form-control" placeholder="Username" [(ngModel)]="Newproject.Pm.Username">
+                </div>
+                <div class="form-group">
+                  <label for="password"></label>
+                  <input type="password" class="form-control" placeholder="Password" [(ngModel)]="Newproject.Pm.Password">
+                </div>
+              </div>
+              <div class="col-md-2"></div>
+            </div>
+            <div class="tab-pane fade" id="tab8primary">
+              <div class="col-md-2"></div>
+              <div class="col-md-8">
+                <div class="form-group">
+                  <label for="comment">Bash:</label>
+                  <textarea class="form-control" [(ngModel)]="Newproject.CD.bash" rows="5" id="comment"></textarea>
+                </div>
+              </div>
+              <div class="col-md-2"></div>
+            </div>
+            <div class="tab-pane fade" id="tab9primary">
+              <div class="col-md-12">
+              <div class="card card-inverse card-info">
+                    <img class="card-img-top" src="https://cdn-images-1.medium.com/max/1600/1*tEhFfadybqOg9iuqbGgR_w.gif">
+                    <div class="card-block">
+                        <h4 class="card-title">Summary</h4>
+                        <div class="card-text">
+                        Project Name: {{Newproject.Name}}<br/>
+                        BuildTool: {{Newproject.Buildpacks.Buildtool}}<br/>
+                        Source Code Mangement: {{Newproject.SCM.Name}}<br/>
+                        Continuous Integration: {{Newproject.ConnectTo}}<br/>
+                        Project Management Tool: {{Newproject.Pm.Name}}<br/>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button type="submit" (click)="myMethod(Newproject)" class="btn btn-primary tldate2">Build</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <pre>{{Newproject|json}}</pre> -->
+<footer>
+<div class="footer">
+  <div class="copyright" title="Altimetrik India Pvt Ltd">
+    ©2016 Altimetrik India Pvt Ltd. All Rights Reserved.
+    <a href="">Privacy Policy</a> — <a href="">Terms of Service</a>
+    <div>
+    </div>
+  </div>
+</div>
+</footer>

@@ -1,0 +1,54 @@
+/*
+  ========================================
+  Clearfix
+  ========================================
+*/
+
+.group:before, .group:after {
+    content: "";
+    display: table;
+}
+
+.group:after {
+    clear: both;
+}
+
+.group {
+    clear: both;
+    *zoom: 1;
+}
+
+.container {
+    padding-left: 2%;
+    padding-right: 2%;
+    width: 96%;
+    margin: 0 auto;
+    /*background-color: rgb(0, 188, 212);*/
+}
+
+.app-logo {
+    /*float:left;*/
+    width:12%;
+    height: 5%;
+    vertical-align: middle;
+}
+
+.app {
+    font-size: 30px;
+    color:#61dafb;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.app:hover{
+    color: #fff;
+}
+
+header{
+  background: #2d2d2d;
+}
+
+/*header {
+    text-align: center;
+    color:#5ab7de;
+    text-transform: uppercase;
+}*/

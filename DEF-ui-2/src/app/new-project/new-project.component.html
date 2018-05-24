@@ -1,0 +1,619 @@
+<header class="navbar navbar-static-top bs-docs-nav Alnav" id="top" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+      <a href="NewProject" class="navbar-brand">Developer Enablement Framework 2.0</a>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="NewProject">Build New Project</a>
+        </li>
+        <li class="dropdown" class="active">
+          <a href="javascript:" data-toggle="dropdown">
+                        Other
+                        <span class="caret"></span>
+                    </a>
+          <ul class="dropdown-menu">
+            <li><a href="getJob">Get Jobs</a></li>
+            <li><a href="passwordManagement">Password Management</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <!-- Localization -->
+        <li>
+          <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="language">Admin</span> <span class="caret"></span>
+                    </a>
+          <ul class="dropdown-menu">
+
+            <li data-language="en">
+              <a href="login">
+                                Logout
+                            </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="container fnt">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel with-nav-tabs panel-primary">
+        <div class="panel-heading">
+          <ul class="nav nav-tabs">
+            <li class="active"><a href="#tab1primary" data-toggle="tab">ProjectName</a></li>
+            <li><a href="#tab2primary" data-toggle="tab">Select Team</a></li>
+            <li><a href="#tab3primary" data-toggle="tab">BuildPacks</a></li>
+            <li><a href="#tab4primary" data-toggle="tab">Source Code Management</a></li>
+            <li><a href="#tab5primary" data-toggle="tab">Build Command</a></li>
+            <li><a href="#tab6primary" data-toggle="tab">CI/CD</a></li>
+            <li><a href="#tab7primary" data-toggle="tab">PM Tool</a></li>
+            <li><a href="#tab8primary" data-toggle="tab">Deployment</a></li>
+            <li><a href="#tab9primary" data-toggle="tab">Summary</a></li>
+          </ul>
+        </div>
+        <div class="panel-body">
+          <div class="tab-content">
+             <div class="tab-pane fade in active" id="tab1primary">
+              <h4>Name your Project</h4>
+              <div class="col-md-2"></div>
+              <div class="col-md-8">
+                <div class="form-group">
+                      <input id="ProjectName" name="ProjectName" class="form-control"
+                      required minlength="3"
+                      [(ngModel)]="Newproject.Name" #ProjectName="ngModel" >
+                      <div *ngIf="ProjectName.invalid && (ProjectName.dirty || ProjectName.touched)"
+                      class="alert alert-danger">
+
+                      <div *ngIf="ProjectName.errors.required">
+                      Project Name is required.
+                      </div>
+                      <div *ngIf="ProjectName.errors.minlength">
+                      Project Name  must be at least 3 characters long.
+                      </div>
+                      </div>
+                </div>
+              </div>
+              <div class="col-md-2"></div>
+            </div>
+            <div class="tab-pane fade" id="tab2primary">
+              <h4>Select Team Members</h4>
+              <div class="form-group">
+                <label></label>
+                <angular2-multiselect [data]="dropdownList" [(ngModel)]="Newproject.TeamMembers" [settings]="dropdownSettings"></angular2-multiselect>
+              </div>
+            </div>
+             <div class="tab-pane fade" id="tab3primary">
+              <div class="col-md-2"></div>
+              <div class="col-md-8">
+                <div class="form-group">
+                  <label for="buildpack"></label>
+                  <select [ngStyle]="{'border-color':Newproject.Buildpacks.Name === '' ? 'red' : '' }" class="form-control" [(ngModel)]="Newproject.Buildpacks.Name">
+                                    <option value=""></option>
+                                    <option value="java">Java</option>
+                                    <option disabled>NodeJs</option>
+                                    <option disabled>PHP</option>
+                                    <option disabled>Static FIle</option>
+                                  </select>
+                                  <p *ngIf="! Newproject.Buildpacks.Name" class="errortext">select Technology</p>
+                </div>
+                <div class="form-group">
+                  <label for="buildtool">BuildTool</label>
+                  <select [ngStyle]="{'border-color':Newproject.Buildpacks.Buildtool === '' ? 'red' : '' }" class="form-control" [(ngModel)]="Newproject.Buildpacks.Buildtool">
+                                    <option value=""></option>
+                                    <option value="Maven">Maven</option>
+                                    <option value="Gradel">Gradel</option>
+                                  </select>
+                                  <p *ngIf="!Newproject.Buildpacks.Buildtool" class="errortext">Select Build tool</p>
+                </div>
+                <div class="form-group">
+                  <label for="pom.xml">Build Path</label>
+                  <input type="text" class="form-control" [(ngModel)]="Newproject.Buildpacks.PomXml" placeholder="BuildPath">
+                </div>
+              </div>
+              <div class="col-md-2"></div>
+            </div>
+            <div class="tab-pane fade" id="tab4primary">
+              <div class="col-md-2"></div>
+              <div class="col-md-8">
+
+                <div class="form-group">
+
+                  <label for="scm"></label>
+                  <select [ngStyle]="{'border-color':Newproject.SCM.Name === '' ? 'red' : '' }" class="form-control" [(ngModel)]="Newproject.SCM.Name">
+                                  <option value=""></option>
+			  
+			  <div class="form-group">
+                    <select name="" placeholder ="" value="null" class="form-control" [(ngModel)]="Newproject.SCM.Name">
+                     <option value="" disabled selected>select the value</option>
+						<option value="github">Github</option>
+						<option value="gitlab">Gitlab</option>
+						<option value="" disabled>SVN</option>
+                                    </select>
+                </div>
+                <!--<div class="form-group">
+
+                  <select  name="" placeholder ="" value="null" class="form-control"  [(ngModel)]="Newproject.SCM.Name">
+                                  <option value="select the value" disabled selected>select the value</option>
+                                  <option value="github">Github</option>
+                                  <option value="gitlab">Gitlab</option>
+                                  <option disabled>SVN</option>
+                                </select>
+
+                                <p *ngIf="!Newproject.SCM.Name" class="errortext">Select Repository</p>
+                </div>
+
+                <div class="form-group">
+                <label for="Link"></label>
+
+                <input id="githublink" name="githublink" class="form-control"
+                      required minlength="3"  placeholder="Github Link"
+                              
+                </div>-->
+
+
+                <div class="form-group">
+
+                <input id="repoBranch" name="repoBranch" class="form-control"
+                      required placeholder="repoBranch"
+                      [(ngModel)]="Newproject.SCM.repoBranch" #repoBranch ="ngModel" >
+
+                      <div *ngIf="repoBranch.invalid && (repoBranch.dirty || repoBranch.touched)"
+                      class="alert alert-danger">
+
+                      <div *ngIf="repoBranch.errors.required">
+                      repo Branch is required.
+                      </div>
+
+                      </div>
+
+
+                </div>
+
+                <div class="form-group">
+
+                <input id="githublink" name="githublink" class="form-control"
+                      required placeholder="Github Link"
+                      [(ngModel)]="Newproject.SCM.Link" #githublink="ngModel" >
+
+                      <div *ngIf="githublink.invalid && (githublink.dirty || githublink.touched)"
+                      class="alert alert-danger">
+
+                      <div *ngIf="githublink.errors.required">
+                      Project Name is required.
+                      </div>
+                      <div *ngIf="githublink.errors.minlength">
+                      Project Name  must be at least 3 characters long.
+                      </div>
+                      GitHub Link is required.
+                      </div>
+
+                      </div>
+
+
+                </div>
+<<<<<<< HEAD
+
+
+=======
+             
+                <div class="form-group">
+                <label for="username"></label>
+
+                <input id="username" name="username" class="form-control"
+                      required minlength="5"  placeholder="Username"
+                      [(ngModel)]="Newproject.SCM.Username" #username="ngModel" >
+
+                      <div *ngIf="username.invalid && (username.dirty || username.touched)"
+                      class="alert alert-danger">
+
+                      <div *ngIf="username.errors.required">
+                      UserName is required.
+                      </div>
+                      <div *ngIf="username.errors.minlength">
+                      UserName  must be at least 5 characters long.
+                      </div>
+                      </div>
+               
+
+                <div class="form-group">
+                    <select name="" placeholder ="" (change)="onChange()" value="null" class="form-control" [(ngModel)]="Newproject.SCM.authType">
+                     <option value="" disabled selected>select the value</option>
+                                      <option value="up">Hostname with Username & Password</option>
+                                      <option value="ups">Hostname with SSH Key</option>
+                                      <option value="upss">Secret Text</option>
+                                    </select>
+                </div>
+
+
+                <div class="form-group">
+
+                <label for="password"></label>
+
+                <input id="password" name="password" class="form-control"
+                      required minlength="5"  placeholder="Password"
+                      [(ngModel)]="Newproject.SCM.Password" #password="ngModel" >
+
+                      <div *ngIf="password.invalid && (password.dirty || password.touched)"
+                      class="alert alert-danger">
+
+                      <div *ngIf="password.errors.required">
+                      Password  is required.
+                      </div>
+                      <div *ngIf="password.errors.minlength">
+                      Password must be at least 5 characters long.
+                      </div>
+                      </div>
+                
+                      <select name=""   placeholder ="CredID"class="form-control" [(ngModel)]="Newproject.SCM.CredentialID">
+                      <option value="" disabled selected>select the value</option>
+                      <option *ngFor="let userdata of userNames" value= {{userdata}}>
+                      {{userdata}}
+                      </option>
+                      </select>
+                </div>
+
+              </div>
+              <div class="col-md-2"></div>
+            </div>
+            <div class="tab-pane fade" id="tab5primary">
+              <div class="col-md-2"></div>
+              <div class="col-md-8">
+                <div class="form-group">
+                  <label for="build"></label>
+                  <div class="row">
+                    <div class="funkyradio">
+                      <div *ngIf="Newproject.Buildpacks.Buildtool !== 'Maven'"  class="funkyradio-info">
+                        <input type="checkbox" name="Clean" [(ngModel)]="Newproject.BuildFaces.Clean" id="Clean" />
+                        <label for="Clean">Clean</label>
+                      </div>
+                      <div *ngIf="Newproject.Buildpacks.Buildtool === 'Maven'" class="funkyradio-info">
+                        <input type="checkbox" name="Compile" [(ngModel)]="Newproject.BuildFaces.Compile" id="Compile" />
+                        <label for="Compile">Compile</label>
+                      </div>
+                      <div *ngIf="Newproject.Buildpacks.Buildtool === 'Maven'" class="funkyradio-info">
+                        <input type="checkbox" name="validate" [(ngModel)]="Newproject.BuildFaces.validate" id="validate" />
+                        <label for="validate">Validate</label>
+                      </div>
+                      </div>
+                    <div *ngIf="Newproject.Buildpacks.Buildtool === 'Maven'" class="funkyradio-info">
+
+                      <input type="checkbox" name="Clean" [(ngModel)]= "Newproject.BuildFaces.Clean" id="Clean" />
+                        <label for="Clean">Clean</label>
+                      </div>
+                    <div *ngIf="Newproject.Buildpacks.Buildtool === 'Maven'" class="funkyradio-info">
+                      <input type="checkbox" name="Compile" [(ngModel)]= "Newproject.BuildFaces.Compile" id="Compile" />
+                        <label for="Compile">Compile</label>
+                    </div>
+                      <div *ngIf="Newproject.Buildpacks.Buildtool !== 'Maven'" class="funkyradio-info">
+                        <input type="checkbox" name="Build" [(ngModel)]="Newproject.BuildFaces.Build" id="Build" />
+                        <label for="Build">Build</label>
+                      </div>
+                      <div *ngIf="Newproject.Buildpacks.Buildtool === 'Maven'" class="funkyradio-info">
+                        <input type="checkbox" name="validate" [(ngModel)]="Newproject.BuildFaces.validate" id="validate" />
+                        <label for="validate">Validate</label>
+                      </div>
+                      <div *ngIf="Newproject.Buildpacks.Buildtool === 'Maven'" class="funkyradio-info">
+                        <input type="checkbox" name="package" [(ngModel)]="Newproject.BuildFaces.package" id="package" />
+                        <label for="package">Package</label>
+                      </div>
+                      <div *ngIf="Newproject.Buildpacks.Buildtool === 'Maven'" class="funkyradio-info">
+                        <input type="checkbox" name="install" [(ngModel)]="Newproject.BuildFaces.install" id="install" />
+                        <label for="install">Install</label>
+                      </div>
+                      <div *ngIf="Newproject.Buildpacks.Buildtool === 'Maven'" class="funkyradio-info">
+                        <input type="checkbox" name="test" [(ngModel)]="Newproject.BuildFaces.test" id="test" />
+                        <label for="test">Test</label>
+                      </div>
+                      <div *ngIf="Newproject.Buildpacks.Buildtool === 'Maven'" class="funkyradio-info">
+                        <input type="checkbox" name="deploy" [(ngModel)]="Newproject.BuildFaces.deploy" id="deploy" />
+                        <label for="deploy">Deploy</label>
+                      </div>
+                      <p *ngIf="leastone">Atleast One should be selected</p>
+                      <div class="funkyradio-info">
+                        <input  type="checkbox" name="docker"  [(ngModel)]="Newproject.BuildFaces.docker" (change)="onDockerSelect()" id="docker" />
+                        <label for="docker">Docker</label>
+                      </div>
+                      
+                    </div>
+                    <div *ngIf="Newproject.BuildFaces.docker === true">
+
+                      <div class="funkyradio-info">
+                        <input  type="checkbox" name="docker"  [(ngModel)]="Newproject.BuildFaces.docker" id="docker" />
+                        <label for="docker">Docker</label>
+                      </div>
+
+                    <div class="funkyradio-info">
+                        <input type="checkbox" name="dockerBuild"   [(ngModel)]="Newproject.BuildFaces.dockerBuild" id="dockerBuild" />
+                        <label for="dockerBuild">Docker Build</label>
+                    </div>
+                     <p  *ngIf=" Newproject.BuildFaces.docker === true && Newproject.BuildFaces.dockerBuild === true"  class="alert alert-danger" >Atleast One should be selected</p>
+
+                    </div>
+                    <div *ngIf=" Newproject.BuildFaces.docker === true || Newproject.BuildFaces.dockerBuild === true">
+
+                    <div class="form-group">
+                    <label for="dockerImageName"></label>
+                    <input type="text" class="form-control" placeholder="Docker Images" [(ngModel)]="Newproject.BuildFaces.dockerImageName" value="">
+                    </div>
+                    <!-- <div class="form-group">
+
+                        <input type="hidden" class="form-control" placeholder="Docker Images" [(ngModel)]="Newproject.BuildFaces.dockerImageName" value="">
+                      </div>-->
+                      <div class="form-group">
+                        <label for="dockerFilePath"></label>
+                        <input type="text" class="form-control" placeholder="Docker File Path" [(ngModel)]="Newproject.BuildFaces.dockerFilePath"  value="BHARATH">
+                      </div>
+                    </div>
+                    </div>
+
+                    <div class="funkyradio funkyradio-info">
+                        <input type="checkbox" name="dockerBuild" [(ngModel)]="Newproject.BuildFaces.dockerBuild" id="dockerBuild" />
+                        <label for="dockerBuild">Docker Build</label>
+                    </div>
+                    <div class="form-group">
+                      <label for="extraArgs">Extra Args</label>
+                      <textarea class="form-control" [(ngModel)]="Newproject.BuildFaces.extraArgs" rows="4" id="extraArgs"></textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2"></div>
+            </div>
+            <div class="tab-pane fade" id="tab6primary">
+              <div class="col-md-2"></div>
+              <div class="col-md-8">
+                <div class="form-group">
+                  <label for="CICD"></label>
+                  <select [ngStyle]="{'border-color':Newproject.ConnectTo === '' ? 'red' : '' }" class="form-control" [(ngModel)]="Newproject.ConnectTo">
+                                    <option value=""></option>
+                  <select class="form-control" [(ngModel)]="Newproject.ConnectTo" (change)="onChangeCICD()">
+                                    <option value="" disabled selected>select the value</option>
+                                    <option value="concourse">Concourse</option>
+                                    <option value="jenkins">Jenkins</option>
+                  </select>
+                  <p *ngIf="!Newproject.ConnectTo" class="errortext">Select CI-CD Plugin</p>
+                  			                  
+                </div>
+                <div *ngIf="Newproject.ConnectTo == 'jenkins'">
+                  <div class="form-group">
+                    <label for="Link"></label>
+                    <input type="text" class="form-control" placeholder="Link" [(ngModel)]="Newproject.Jenkins.JenkinsURL" id="jenkinsurl" name="jenkinsurl" #jenkinsurl="ngModel" required>
+                    <div *ngIf="jenkinsurl.invalid && (jenkinsurl.dirty || jenkinsurl.touched)"
+                    class="alert alert-danger">
+
+                    <div *ngIf="jenkinsurl.errors.required">
+                    Jenkins Url is required.
+                    </div>
+                  </div>
+                  </div>
+
+                  <div class="form-group">
+                   <label for="Link"></label>
+                    <select name="" placeholder ="" (change)="onChangeCICD()" class="form-control" [(ngModel)]="Newproject.Jenkins.authType">
+                                      <option value="up">Hostname with Username & Password</option>
+                                      <option value="ups">Hostname with SSH Key</option>
+                                      <option value="upss">Secret Text</option>
+                                    </select>
+                </div>
+
+
+                  <div class="form-group">
+                      <label for="username"></label>
+                      <select name="" placeholder ="CredID"class="form-control" [(ngModel)]="Newproject.Jenkins.CredentialID">
+                      <option *ngFor="let userdata of usernameJenkin" value= {{userdata}}>
+                      {{userdata}}
+                      </option>
+                      </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="jenkinsFolder"></label>
+                    <input type="text" class="form-control" [(ngModel)]="Newproject.Jenkins.jenkinsFolder" placeholder="Jenkins Folder">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="ArtifactoryUrl"></label>
+                    <input type="text" class="form-control" [(ngModel)]="Newproject.Jenkins.ArtifactoryUrl" placeholder="Artifactory Url" id="artifactoryurl" name="artifactoryurl" #artifactoryurl="ngModel" required>
+                 
+                  <div *ngIf="artifactoryurl.invalid && (artifactoryurl.dirty || artifactoryurl.touched)"
+                  class="alert alert-danger">
+
+                  <div *ngIf="artifactoryurl.errors.required">
+                  Artifactory Url is required.
+                  </div>
+                </div>
+                </div>
+                  <div class="form-group">
+                    <label for="TargetReleaseSynatax"></label>
+                    <input type="text" class="form-control" [(ngModel)]="Newproject.Jenkins.TargetReleaseSynatax" placeholder="Target release syntax" id="targetreleasesyntax" name="targetreleasesyntax" #targetreleasesyntax="ngModel" required>
+                    <div *ngIf="targetreleasesyntax.invalid && (targetreleasesyntax.dirty || targetreleasesyntax.touched)"
+                    class="alert alert-danger">
+                  <div *ngIf="targetreleasesyntax.errors.required">
+                    Target Release Syntax is required.
+                    </div>
+                  </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="TargetSnapshotSyntax"></label>
+                    <input type="text" class="form-control" [(ngModel)]="Newproject.Jenkins.TargetSnapshotSyntax" placeholder="Target snapshot syntax" id="targetsnapshotsyntax" name="targetsnapshotsyntax" #targetsnapshotsyntax="ngModel" required>
+                    <div *ngIf="targetsnapshotsyntax.invalid && (targetsnapshotsyntax.dirty || targetsnapshotsyntax.touched)"
+                    class="alert alert-danger">
+                  <div *ngIf="targetsnapshotsyntax.errors.required">
+                    Target Snapshot Syntax is required.
+                    </div>
+                  </div>
+                </div>
+              </div>
+                <div *ngIf="Newproject.ConnectTo == 'concourse'">
+					<div class="form-group">
+						<label for="Link"></label>
+						<input type="text" class="form-control" placeholder="Link" [(ngModel)]="Newproject.Concourse.ConcourseURL" id="concourseURL" name="concourseURL" #concourseURL="ngModel" required>
+						<div *ngIf="concourseURL.invalid && (concourseURL.dirty || concourseURL.touched)"
+						class="alert alert-danger">
+							<div *ngIf="concourseURL.errors.required">
+								Concourse URL is required.
+							</div>
+						</div>
+					</div>
+				 <div class="form-group">
+                    <label for="username"></label>
+                    <input type="text" class="form-control" placeholder="Username" [(ngModel)]="Newproject.Concourse.ConcourseUsername">
+                  </div>
+                  <div class="form-group">
+                    <label for="password"></label>
+                    <input type="password" class="form-control" placeholder="Password" [(ngModel)]="Newproject.Concourse.ConcoursePassword">
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2"></div>
+            </div>
+            <div class="tab-pane fade" id="tab7primary">
+              <div class="col-md-2"></div>
+              <div class="col-md-8">
+                <div class="form-group">
+                  <label for="CICD"></label>
+                  <select class="form-control" [(ngModel)]="Newproject.Pm.Name">
+                                    <option value="" disabled selected>select the value</option>
+                                    <option value="rally">Rally</option>
+                                    <option value="pivotal tracker">Pivotal Tracker</option>
+                                  </select>
+                </div>
+                 <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Link" [(ngModel)]="Newproject.Pm.Link">
+                </div>
+
+                 <div class="form-group">
+                    <select name="" placeholder ="" (change)="onChangePM()" class="form-control" [(ngModel)]="Newproject.Pm.authType">
+                                      <option value="" disabled selected>select the value</option>
+                                      <option value="up">Hostname with Username & Password</option>
+                                      <option value="ups">Hostname with SSH Key</option>
+                                      <option value="upss">Secret Text</option>
+                                    </select>
+                </div>
+
+
+                <div class="form-group">
+
+                      <select name="" placeholder ="CredID" class="form-control" [(ngModel)]="Newproject.Pm.CredentialID">
+                      <option value="" disabled selected>select the value</option>
+                      <option *ngFor="let userdata of userNamesPM" value= {{userdata}}>
+                      {{userdata}}
+                      </option>
+                      </select>
+                </div>
+
+              </div>
+              <div class="col-md-2"></div>
+            </div>
+            <div class="tab-pane fade" id="tab8primary">
+              <div class="col-md-2"></div>
+              <div class="col-md-8">
+              <div class="form-group">
+                  <label for="CICD"></label>
+                  <select class="form-control" [(ngModel)]="Newproject.CD.deployTo">
+                                     <option value="" disabled selected>select the value</option>
+                                    <option value="docker">Docker</option>
+                                  </select>
+                </div>
+                <div *ngIf="Newproject.CD.deployTo === 'docker'">
+                 <div class="form-group">
+                  <label for="CICD"></label>
+                    <select name="" placeholder ="" (change)="onChangeCD()" class="form-control" [(ngModel)]="Newproject.CD.authType">
+                                      <option value="" disabled selected>select the value</option>
+                                      <option value="up">Hostname with Username & Password</option>
+                                      <option value="ups">Hostname with SSH Key</option>
+                                      <option value="upss">Secret Text</option>
+                                    </select>
+                </div>
+
+                 <div class="form-group">
+                 <label for="CICD"></label>
+                      <select name="" placeholder ="CredID" class="form-control" [(ngModel)]="Newproject.CD.CredentialID">
+                      <option value="" disabled selected>select the value</option>
+                      <option *ngFor="let userdata of userNamesCD" value= {{userdata}}>
+                      {{userdata}}
+                      </option>
+                      </select>
+                </div>
+
+                <div class="form-group">
+                        <label for="dockerServer"></label>
+                        <input type="text" class="form-control" placeholder="Deployment Server" [(ngModel)]="Newproject.CD.deploymentServer">
+                      </div>
+                      <div class="form-group">
+                        <label for="dockerPort"></label>
+                        <input type="text" class="form-control" placeholder="App Port Number" [(ngModel)]="Newproject.CD.appTargetPortNumber">
+                      </div>
+
+                      <div class="form-group">
+                        <label for="appPortNumber"></label>
+                        <input type="text" class="form-control" placeholder="Docker Exposed Port Number" [(ngModel)]="Newproject.CD.dockerExposedPortNumber">
+                      </div>
+                      <div class="form-group">
+                        <label for="registryServer"></label>
+                        <input type="text" class="form-control" placeholder="Registry Server" [(ngModel)]="Newproject.CD.dockerImgRegistryServer">
+                      </div>
+                      <div class="form-group">
+                        <label for="dockerPortNumber"></label>
+                        <input type="text" class="form-control" placeholder="Docker Registry Port Number" [(ngModel)]="Newproject.CD.dockerImgRegistryPort">
+                      </div>
+
+                      </div>
+
+
+                <div class="form-group">
+                  <label for="comment">Bash:</label>
+                  <textarea class="form-control" [(ngModel)]="Newproject.CD.bash" rows="5" id="comment"></textarea>
+                </div>
+              </div>
+              <div class="col-md-2"></div>
+            </div>
+            <div class="tab-pane fade" id="tab9primary">
+              <div class="col-md-12">
+              <div class="card card-inverse card-info">
+                    <img class="card-img-top" src="https://cdn-images-1.medium.com/max/1600/1*tEhFfadybqOg9iuqbGgR_w.gif">
+                    <div class="card-block">
+                        <h4 class="card-title">Summary</h4>
+                        <div class="card-text">
+                        Project Name: {{Newproject.Name}}<br/>
+                        BuildTool: {{Newproject.Buildpacks.Buildtool}}<br/>
+                        Source Code Mangement: {{Newproject.SCM.Name}}<br/>
+                        Continuous Integration: {{Newproject.ConnectTo}}<br/>
+                        Project Management Tool: {{Newproject.Pm.Name}}<br/>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button type="submit" (click)="myMethod(Newproject)" class="btn btn-primary tldate2">Build</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <pre>{{Newproject|json}}</pre> -->
+<footer>
+<div class="footer">
+  <div class="copyright" title="Altimetrik India Pvt Ltd">
+    ©2016 Altimetrik India Pvt Ltd. All Rights Reserved.
+    <a href="">Privacy Policy</a> — <a href="">Terms of Service</a>
+    <div>
+    </div>
+  </div>
+</div>
+</footer>
+

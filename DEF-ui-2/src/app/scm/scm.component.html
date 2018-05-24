@@ -1,0 +1,233 @@
+<div class="container-fluid fnt">
+
+  <header class="page-header">
+    <h1>Build Existing Project Project</h1>
+  </header>
+  <div class="row">
+    <div class="col-md-9">
+      <ul class="timeline">
+        <li class="timeline-inverted">
+          <div class="tl-circ"></div>
+          <div class="timeline-panel">
+            <div class="tl-heading">
+              <h4>Select Repository</h4>
+            </div>
+            <div class="tl-body">
+              <div class="col-md-2"></div>
+              <div class="col-md-8">
+                <label for="scm"></label>
+                <div class="row">
+                  <div class="col-md-6">
+                    <button class="btn btn-default btn-lg customBtn" (click)="git()"><i class="fa fa-github"></i> Github</button>
+                  </div>
+                  <div class="col-md-6">
+                    <button class="btn btn-default btn-lg customBtn" (click)="gitLab()"><i class="fa fa-gitlab"></i> GitLab</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2"></div>
+            </div>
+          </div>
+        </li>
+
+        <li class="timeline-inverted" *ngIf="Github == true || GitLab == true">
+          <div class="tl-circ"></div>
+          <div class="timeline-panel">
+            <div class="tl-heading">
+              <h4>Source Code Management Token</h4>
+            </div>
+            <div class="tl-body">
+              <div class="col-md-2"></div>
+              <div class="col-md-8">
+                <div *ngIf="Github == true">
+                  <div class="form-group">
+                    <label for="GitHub"></label>
+                    <input type="text" class="form-control" placeholder="GitHub Token">
+                  </div>
+                  <button type="submit" class="btn btn-primary" (click)="GetRep()">Get Repository</button>
+                </div>
+                <div *ngIf="GitLab == true">
+                  <div class="form-group">
+                    <label for="GitHub"></label>
+                    <input type="text" class="form-control" placeholder="GitLab Token">
+                  </div>
+                  <button type="submit" class="btn btn-primary" (click)="GetRep()">Get Repository</button>
+                </div>
+              </div>
+              <div class="col-md-2"></div>
+            </div>
+          </div>
+        </li>
+        <li class="timeline-inverted" *ngIf="Repository == true">
+          <div class="tl-circ"></div>
+          <div class="timeline-panel">
+            <div class="tl-heading">
+              <h4>Choose your Repository</h4>
+            </div>
+            <div class="tl-body">
+              <div class="col-md-2"></div>
+              <div class="col-md-8">
+                <div class="form-group">
+                  <label for="Repository"></label>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <input type="radio" name="flavor" id="flav1" class="input-hidden" value="Ubuntu 14.04 LTS" [(ngModel)]="rep" />
+                      <label for="flav1">
+                      <div class="btn btn-p">Repository 1</div>
+                    </label>
+                    </div>
+                    <div class="col-md-12">
+                      <input type="radio" name="flavor" id="flav2" class="input-hidden" value="Ubuntu 14.04.1 LTS" [(ngModel)]="rep" />
+                      <label for="flav2">
+                        <div class="btn btn-p">Repository 2</div>
+                      </label>
+                    </div>
+                    <div class="col-md-12">
+                      <input type="radio" name="flavor" id="flav3" class="input-hidden" value="Ubuntu 14.04.2 LTS" [(ngModel)]="rep" />
+                      <label for="flav3">
+                        <div class="btn btn-p">Repository 3</div>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2"></div>
+            </div>
+          </div>
+        </li>
+        <li class="timeline-inverted" *ngIf="rep != null">
+          <div class="tl-circ"></div>
+          <div class="timeline-panel">
+            <div class="tl-heading">
+              <h4>Choose your CI Tool</h4>
+            </div>
+            <div class="tl-body">
+              <div class="col-md-2"></div>
+              <div class="col-md-8">
+                <div class="form-group">
+                  <label for="Repository"></label>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <input type="radio" name="ci" id="ci1" class="input-hidden" value="con" [(ngModel)]="ci" />
+                      <label for="ci1">
+                      <div class="btn btn-p">Concourse</div>
+                    </label>
+                    </div>
+                    <div class="col-md-12">
+                      <input type="radio" name="ci" id="ci2" class="input-hidden" value="jen" [(ngModel)]="ci" />
+                      <label for="ci2">
+                        <div class="btn btn-p">Jenkins</div>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2"></div>
+            </div>
+          </div>
+        </li>
+        <li class="timeline-inverted" *ngIf="ci != null">
+          <div class="tl-circ"></div>
+          <div class="timeline-panel">
+            <div class="tl-heading">
+              <h4>Comments</h4>
+            </div>
+            <div class="tl-body">
+              <div class="col-md-2"></div>
+              <div class="col-md-8">
+                <div class="form-group">
+                  <label for="build"></label>
+                  <div class="row">
+                    <div class="funkyradio">
+                      <div class="funkyradio-info">
+                        <input type="checkbox" name="Clean" id="Clean" />
+                        <label for="Clean">Clean</label>
+                      </div>
+                      <div class="funkyradio-info">
+                        <input type="checkbox" name="Compile" id="Compile" />
+                        <label for="Compile">Compile</label>
+                      </div>
+                      <div class="funkyradio-info">
+                        <input type="checkbox" name="Build" id="Build" />
+                        <label for="Build">Build</label>
+                      </div>
+                      <div class="funkyradio-info">
+                        <input type="checkbox" name="validate" id="validate" />
+                        <label for="validate">Validate</label>
+                      </div>
+                      <div class="funkyradio-info">
+                        <input type="checkbox" name="package" id="package" />
+                        <label for="package">Package</label>
+                      </div>
+                      <div class="funkyradio-info">
+                        <input type="checkbox" name="install" id="install" />
+                        <label for="install">Install</label>
+                      </div>
+                      <div class="funkyradio-info">
+                        <input type="checkbox" name="test" id="test" />
+                        <label for="test">Test</label>
+                      </div>
+                      <div class="funkyradio-info">
+                        <input type="checkbox" name="deploy" id="deploy" />
+                        <label for="deploy">Deploy</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2"></div>
+            </div>
+          </div>
+        </li>
+        <li class="timeline-inverted" *ngIf="ci != null">
+          <div class="tl-circ"></div>
+          <div class="timeline-panel">
+            <div class="tl-heading">
+              <h4>Choose your Cloud</h4>
+            </div>
+            <div class="tl-body">
+              <div class="col-md-2"></div>
+              <div class="col-md-8">
+                <div class="form-group">
+                  <label for="Repository"></label>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <input type="radio" name="cd" id="cd1" class="input-hidden" value="pcf" [(ngModel)]="cd" />
+                      <label for="cd1">
+                      <div class="btn btn-p">Pivotal Cloud Foundry</div>
+                    </label>
+                    </div>
+                    <div class="col-md-12">
+                      <input type="radio" name="cd" id="cd2" class="input-hidden" value="aws" [(ngModel)]="cd" />
+                      <label for="cd2">
+                        <div class="btn btn-p">Amazon Web Service</div>
+                      </label>
+                    </div>
+                    <div class="col-md-12">
+                      <input type="radio" name="cd" id="cd3" class="input-hidden" value="Az" [(ngModel)]="cd" />
+                      <label for="cd3">
+                        <div class="btn btn-p">Microsoft Azure</div>
+                      </label>
+                    </div>
+                    <div class="col-md-12">
+                      <input type="radio" name="cd" id="cd4" class="input-hidden" value="go" [(ngModel)]="cd" />
+                      <label for="cd4">
+                        <div class="btn btn-p">Google Cloud</div>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2"></div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <a href="Success" type="submit" class="btn btn-primary tldate2">Build</a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+
+</div>

@@ -1,0 +1,28 @@
+
+ .plusImg {
+     background-image: url('./Plus-26.png');
+     background-repeat:no-repeat;
+ }
+
+.alignLeft {
+    text-align: left;
+    display: block;
+    padding:15px 0 0 0;
+}
+
+.plusBorder {
+  border: 0;
+  display: block;
+  float: left;
+  margin-right: 15px
+}
+
+.inlineAccordian{                                                    
+          text-align: left;                                            
+            padding-left: 40px;                                          
+}                                                                    
+                                                                      
+.inlineText{                                                         
+      background-color: #ffffe6 ;                                  
+      color: #808000;                                                  
+}                                                                    

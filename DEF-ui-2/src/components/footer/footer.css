@@ -1,0 +1,25 @@
+.footer_style {
+        background:#2d2d2d;
+        padding : 40px;
+}
+
+.footer_style .copyright {
+      text-align: center;
+      color: rgba(255,255,255,0.4);
+}
+
+.footer{
+	bottom: 0px;
+	position: fixed;
+	width: 100%;
+	padding-top: 10px;
+	height: 10%;
+}
+
+.align-left{
+	float:left;
+}
+
+.align-right{
+	float:right;
+}

@@ -1,0 +1,100 @@
+.slider {
+    height: 100%;
+    position: relative;
+}
+
+.left-arrow {
+    width: 3%;
+    height: 16px;
+    display: block;
+    position: absolute;
+    left:4%;
+    top:50%;
+    cursor: pointer;
+    background-image: url('../../static/img/left.png');
+    background-repeat:no-repeat;
+}
+
+.right-arrow {
+    width: 3%;
+    height: 16px;
+    display: block;
+    position:absolute;
+    right:4%;
+    top:50%;
+    cursor: pointer;
+    background-image: url('../../static/img/right.png');
+    background-repeat:no-repeat;
+}
+
+.slider-display img {
+    width: 100%;
+    display: inline-block;
+}
+
+.slider-display a{
+      display: inline-block;
+      vertical-align: middle;
+      margin-right:0px;
+      margin-left:0px;
+}
+
+.slider-indicators {
+    list-style: none;
+    text-align: center;
+    z-index: 1;
+    text-align: center;
+    padding-left: 0;
+    margin:0;
+}
+
+.slider-indicators li {
+    display: inline-block;
+    background-color: grey;
+    width: 10px;
+    height: 10px;
+    margin: 2px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.slider-indicators .active {
+    width: 11px;
+    height: 11px;
+    background-color: grey;
+    border-radius: 10px;
+}
+
+.slider-indicators li:hover {
+    width: 11px;
+    height: 11px;
+    background-color: grey;
+    border-radius: 10px;
+}
+
+.slide-animation-enter {
+    transform: translate(100%);
+}
+
+.slide-animation-enter.slide-animation-enter-active {
+    transform: translate(0%);
+    transition: transform 1000ms ease-in-out;
+}
+
+.slide-animation-leave {
+    transform: translate(0%);
+}
+
+.slide-animation-leave.slide-animation-leave-active {
+    transform: translate(-100%);
+    transition: transform 1000ms ease-in-out;
+}
+
+.slide-animation {
+    opacity: 0.1;
+    transition: opacity 1000ms ease-in;
+}
+
+.show {
+    opacity: 1;
+}

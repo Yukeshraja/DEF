@@ -1,0 +1,30 @@
+# url: "ssh://phvcs@platformworks.altimetrik.com:2222/diffusion/9/hachon.git_TEST"
+# name: "*/master_TEST"
+# trigger: 0 22 * * 1-5_TEST
+# targets: clean compile install_TEST
+# mavenName: Maven3_TEST
+# jvmOptions: -Xms1024m -Xmx4096m -XX:PermSize=1024m_TEST
+# pom: "/var/lib/jenkins/workspace/Hachon/pom.xml_TEST"
+# usePrivateRepository: true_TEST
+# path: "/var/lib/jenkins/.m2/settings.xml_TEST"
+
+# sonarMavenOpts: -Xss4m_TEST
+# sonarRootPom: "/var/lib/jenkins/workspace/Hachon/pom.xml_TEST"
+# sonarUsePrivateRepository: false_TEST
+# sonarRecipientList: sgandra@altimetrik.com,gananthakrishnan@altimetrik.com,Jrajasekaran@altimetrik.com,Riyaz.Shaikh3145@altimetrik.com,rshanavaz@altimetrik.com,bsingh@altimetrik.com,smajumder@altimetrik.com,isharma@altimetrik.com_TEST
+
+url: "https://github.com/kannan0501/HelloWorld.git"
+name: "*/master"
+trigger: 0 22 * * 1-5
+targets: clean compile install
+mavenName: Maven3
+jvmOptions: -Xms1024m -Xmx4096m -XX:PermSize=1024m
+pom: "/var/lib/jenkins/workspace/Hachon/pom.xml"
+usePrivateRepository: true
+path: "/var/lib/jenkins/.m2/settings.xml"
+
+sonarMavenOpts: -Xss4m
+sonarRootPom: "/var/lib/jenkins/workspace/Hachon/pom.xml"
+sonarUsePrivateRepository: false
+sonarRecipientList: sgandra@altimetrik.com,gananthakrishnan@altimetrik.com,Jrajasekaran@altimetrik.com,Riyaz.Shaikh3145@altimetrik.com,rshanavaz@altimetrik.com,bsingh@altimetrik.com,smajumder@altimetrik.com,isharma@altimetrik.com
+

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><project>
+  <actions/>
+  <description/>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.2.0">
+    <configVersion>2</configVersion>
+    <userRemoteConfigs>
+      <hudson.plugins.git.UserRemoteConfig>
+        <url></url>
+      </hudson.plugins.git.UserRemoteConfig>
+    </userRemoteConfigs>
+    <branches>
+      <hudson.plugins.git.BranchSpec>
+        <name></name>
+      </hudson.plugins.git.BranchSpec>
+    </branches>
+    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+    <submoduleCfg class="list"/>
+    <extensions/>
+  </scm>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers>
+    <hudson.triggers.TimerTrigger>
+      <spec></spec>
+    </hudson.triggers.TimerTrigger>
+  </triggers>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Maven>
+      <targets></targets>
+      <mavenName></mavenName>
+      <jvmOptions></jvmOptions>
+      <pom></pom>
+      <usePrivateRepository>true</usePrivateRepository>
+      <settings class="jenkins.mvn.FilePathSettingsProvider">
+        <path></path>
+      </settings>
+      <globalSettings class="jenkins.mvn.DefaultGlobalSettingsProvider"/>
+      <injectBuildVariables>false</injectBuildVariables>
+    </hudson.tasks.Maven>
+  </builders>
+  <publishers>
+    <hudson.plugins.sonar.SonarPublisher plugin="sonar@2.6.1">
+      <branch/>
+      <mavenOpts>-Xss4m</mavenOpts>
+      <jobAdditionalProperties/>
+      <rootPom>/var/lib/jenkins/workspace/Hachon/pom.xml</rootPom>
+      <settings class="jenkins.mvn.DefaultSettingsProvider"/>
+      <globalSettings class="jenkins.mvn.DefaultGlobalSettingsProvider"/>
+      <usePrivateRepository>false</usePrivateRepository>
+    </hudson.plugins.sonar.SonarPublisher>
+    <hudson.plugins.emailext.ExtendedEmailPublisher plugin="email-ext@2.57.2">
+      <recipientList> sgandra@altimetrik.com,gananthakrishnan@altimetrik.com,Jrajasekaran@altimetrik.com,Riyaz.Shaikh3145@altimetrik.com,rshanavaz@altimetrik.com,bsingh@altimetrik.com,smajumder@altimetrik.com,isharma@altimetrik.com
+</recipientList>
+      <configuredTriggers>
+        <hudson.plugins.emailext.plugins.trigger.AlwaysTrigger>
+          <email>
+            <subject>$PROJECT_DEFAULT_SUBJECT</subject>
+            <body>$PROJECT_DEFAULT_CONTENT</body>
+            <recipientProviders>
+              <hudson.plugins.emailext.plugins.recipients.DevelopersRecipientProvider/>
+              <hudson.plugins.emailext.plugins.recipients.ListRecipientProvider/>
+            </recipientProviders>
+            <attachmentsPattern/>
+            <attachBuildLog>false</attachBuildLog>
+            <compressBuildLog>false</compressBuildLog>
+            <replyTo>$PROJECT_DEFAULT_REPLYTO</replyTo>
+            <contentType>project</contentType>
+          </email>
+        </hudson.plugins.emailext.plugins.trigger.AlwaysTrigger>
+      </configuredTriggers>
+      <contentType>default</contentType>
+      <defaultSubject>$DEFAULT_SUBJECT</defaultSubject>
+      <defaultContent>$DEFAULT_CONTENT
+
+</defaultContent>
+      <attachmentsPattern/>
+      <presendScript>$DEFAULT_PRESEND_SCRIPT</presendScript>
+      <postsendScript>$DEFAULT_POSTSEND_SCRIPT</postsendScript>
+      <attachBuildLog>true</attachBuildLog>
+      <compressBuildLog>false</compressBuildLog>
+      <replyTo>noreply@jenkins.com</replyTo>
+      <saveOutput>false</saveOutput>
+      <disabled>false</disabled>
+    </hudson.plugins.emailext.ExtendedEmailPublisher>
+  </publishers>
+  <buildWrappers>
+    <org.jfrog.hudson.generic.ArtifactoryGenericConfigurator plugin="artifactory@2.10.3">
+      <details>
+        <artifactoryName>192.168.94.138</artifactoryName>
+        <artifactoryUrl>http://192.168.94.138:8081/artifactory</artifactoryUrl>
+        <deployReleaseRepository>
+          <keyFromText/>
+          <keyFromSelect>libs-snapshot-local</keyFromSelect>
+          <dynamicMode>false</dynamicMode>
+        </deployReleaseRepository>
+        <stagingPlugin/>
+      </details>
+      <resolverDetails>
+        <artifactoryName>192.168.94.138</artifactoryName>
+        <artifactoryUrl>http://192.168.94.138:8081/artifactory</artifactoryUrl>
+        <stagingPlugin/>
+      </resolverDetails>
+      <deployerCredentialsConfig>
+        <credentials>
+          <username/>
+          <password/>
+        </credentials>
+        <credentialsId/>
+        <overridingCredentials>false</overridingCredentials>
+        <ignoreCredentialPluginDisabled>false</ignoreCredentialPluginDisabled>
+      </deployerCredentialsConfig>
+      <resolverCredentialsConfig>
+        <credentials>
+          <username/>
+          <password/>
+        </credentials>
+        <credentialsId/>
+        <overridingCredentials>false</overridingCredentials>
+        <ignoreCredentialPluginDisabled>false</ignoreCredentialPluginDisabled>
+      </resolverCredentialsConfig>
+      <useSpecs>false</useSpecs>
+      <uploadSpec>
+        <spec/>
+      </uploadSpec>
+      <downloadSpec>
+        <spec/>
+      </downloadSpec>
+      <deployPattern>/var/lib/jenkins/workspace/Hachon/.repository/com/altimetrik/ive/platform/hachon/delimited-file-processor/0.0.1-SNAPSHOT/*.jar
+/var/lib/jenkins/workspace/Hachon/.repository/com/altimetrik/ive/platform/hachon/log-file-processor/0.0.1-SNAPSHOT/*.jar
+/var/lib/jenkins/workspace/Hachon/.repository/com/altimetrik/ive/platform/hachon/hdfs-sink/0.0.1/*.jar</deployPattern>
+      <resolvePattern/>
+      <matrixParams/>
+      <deployBuildInfo>true</deployBuildInfo>
+      <includeEnvVars>false</includeEnvVars>
+      <envVarsPatterns>
+        <includePatterns/>
+        <excludePatterns>*password*,*secret*,*key*</excludePatterns>
+      </envVarsPatterns>
+      <discardOldBuilds>false</discardOldBuilds>
+      <discardBuildArtifacts>true</discardBuildArtifacts>
+      <multiConfProject>false</multiConfProject>
+      <customBuildName/>
+      <overrideBuildName>false</overrideBuildName>
+    </org.jfrog.hudson.generic.ArtifactoryGenericConfigurator>
+  </buildWrappers>
+  <!--<defaultCrumbIssuer _class="hudson.security.csrf.DefaultCrumbIssuer">
+<crumb>dc9ff929453cee6a2ae8081b12127bee</crumb>
+<crumbRequestField>Jenkins-Crumb</crumbRequestField>
+</defaultCrumbIssuer>-->
+</project>

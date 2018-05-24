@@ -1,0 +1,12 @@
+#url: "TEST_URL"
+#uname: UNAME
+#pwd: PWD
+
+#url: http://192.168.94.138:8080/
+url: http://192.168.1.128:8080/
+uname: admin
+pwd: 811be75708b14c71829613fa556a528f
+#uname: senga
+#pwd: DEF1234
+#jobName: sgandra0014
+jobName: sample

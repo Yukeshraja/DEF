@@ -1,0 +1,346 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+	<actions />
+	<description></description>
+	<keepDependencies>false</keepDependencies>
+	<properties />
+	<scm class="hudson.plugins.git.GitSCM" plugin="git@3.2.0">
+		<configVersion>2</configVersion>
+		<userRemoteConfigs>
+			<hudson.plugins.git.UserRemoteConfig>
+				<url>{{scm.link}}</url>
+			</hudson.plugins.git.UserRemoteConfig>
+		</userRemoteConfigs>
+		<branches>
+			<hudson.plugins.git.BranchSpec>
+				<name>{{scm.repoBranch}}</name>
+			</hudson.plugins.git.BranchSpec>
+		</branches>
+		<doGenerateSubmoduleConfigurations>false
+		</doGenerateSubmoduleConfigurations>
+		<submoduleCfg class="list" />
+		<extensions />
+	</scm>
+	<canRoam>true</canRoam>
+	<disabled>false</disabled>
+	<blockBuildWhenDownstreamBuilding>false
+	</blockBuildWhenDownstreamBuilding>
+	<blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+	<triggers />
+	<concurrentBuild>false</concurrentBuild>
+	<builders>
+		<hudson.tasks.Maven>
+			<targets>
+
+				{{#if buildFaces.clean}}
+				clean
+				{{/if}}
+
+				{{#if buildFaces.compile}}
+				compile
+				{{/if}}
+
+				{{#if buildFaces.build}}
+				build
+				{{/if}}
+
+				{{#if
+				buildFaces.validate}}
+				validate
+				{{/if}}
+
+				{{#if buildFaces.package}}
+				package
+				{{/if}}
+
+				{{#if buildFaces.install}}
+				install
+				{{/if}}
+
+				{{#if
+				buildFaces.test}}
+				test
+				{{/if}}
+
+				{{#if buildFaces.deploy}}
+				deploy
+				{{/if}}
+
+				{{#if buildFaces.dockerBuild}}
+				docker:build -DdockerImageName=$JOB_BASE_NAME:$BUILD_ID
+				{{/if}}
+
+				{{#if buildFaces.extraArgs }}
+					{{ buildFaces.extraArgs }}
+				{{/if}}
+
+
+<!-- 				{{#if buildFaces.extraArgs }}
+				{{ buildFaces.extraArgs }}
+					-DdockerImageName={{ buildFaces.dockerImageName }}
+				{{/if}} -->
+
+
+			</targets>
+			<mavenName>{{ buildpacks.buildtool }}</mavenName>
+			<pom>{{ buildpacks.pomXml }}</pom>
+			<usePrivateRepository>false</usePrivateRepository>
+			<settings class="jenkins.mvn.DefaultSettingsProvider" />
+			<globalSettings class="jenkins.mvn.DefaultGlobalSettingsProvider" />
+			<injectBuildVariables>false</injectBuildVariables>
+		</hudson.tasks.Maven>
+		<hudson.tasks.Shell>
+			<command>
+			<!-- 	{{#if buildFaces.dockerBuild}}
+				docker tag uimodel:latest 192.168.94.138:5000/uimodel docker push 
+					192.168.94.138:5000/uimodel
+				docker build -t {{ buildFaces.dockerImageName }}:latest .
+				docker tag {{ buildFaces.dockerImageName }}:latest {{ buildFaces.dockerServer 
+					}}:{{ buildFaces.dockerPort }}/{{ buildFaces.dockerImageName }} docker push 
+					{{ buildFaces.dockerServer }}:{{ buildFaces.dockerPort }}/{{ buildFaces.dockerImageName 
+					}}
+
+				{{/if}}
+
+				{{#if buildFaces.dockerBuild}}
+				docker tag {{ buildFaces.dockerImageName }}:latest {{
+				buildFaces.dockerServer }}:{{ buildFaces.dockerPort }}/{{
+				buildFaces.dockerImageName }}
+				docker push {{ buildFaces.dockerServer }}:{{ buildFaces.dockerPort }}/{{
+				buildFaces.dockerImageName }}
+				{{else}}
+				{{#if buildFaces.docker}}
+				docker tag {{ buildFaces.dockerImageName }}:latest {{
+				buildFaces.dockerServer }}:{{ buildFaces.dockerPort }}/{{
+				buildFaces.dockerImageName }}
+				docker push {{ buildFaces.dockerServer }}:{{ buildFaces.dockerPort }}/{{
+				buildFaces.dockerImageName }}
+				{{/if}}
+				{{/if}} -->
+				
+				{{#if buildFaces.docker}}
+					export JOB_BASE_NAME=$(echo ${JOB_BASE_NAME} | tr '[:upper:]' '[:lower:]')
+					docker login -u $_DOCKERUSER -p $_DOCKERPW $_DOCKERREPO
+					{{#if buildFaces.dockerFilePath}} cd {{buildFaces.dockerFilePath}} {{/if}}
+					
+					docker build -t $JOB_BASE_NAME:$BUILD_ID .
+					docker tag $JOB_BASE_NAME:$BUILD_ID {{ buildFaces.dockerServer }}:{{ buildFaces.dockerPort }}/$JOB_BASE_NAME:$BUILD_ID
+					docker tag $JOB_BASE_NAME:$BUILD_ID {{ buildFaces.dockerServer }}:{{ buildFaces.dockerPort }}/$JOB_BASE_NAME:latest
+					docker push {{ buildFaces.dockerServer }}:{{ buildFaces.dockerPort }}/$JOB_BASE_NAME:$BUILD_ID
+					docker push {{ buildFaces.dockerServer }}:{{ buildFaces.dockerPort }}/$JOB_BASE_NAME:latest
+					docker rmi {{ buildFaces.dockerServer }}:{{ buildFaces.dockerPort }}/$JOB_BASE_NAME:$BUILD_ID || true
+					docker rmi {{ buildFaces.dockerServer }}:{{ buildFaces.dockerPort }}/$JOB_BASE_NAME:latest || true
+					docker rmi $JOB_BASE_NAME:$BUILD_ID || true
+				{{/if}}
+				
+				{{#if buildFaces.dockerBuild}}
+					export JOB_BASE_NAME=$(echo ${JOB_BASE_NAME} | tr '[:upper:]' '[:lower:]')
+					docker login -u $_DOCKERUSER -p $_DOCKERPW $_DOCKERREPO
+					{{#if buildFaces.dockerFilePath}} cd {{buildFaces.dockerFilePath}} {{/if}}
+					
+					#docker build -t $JOB_BASE_NAME:$BUILD_ID .
+					docker tag $JOB_BASE_NAME:$BUILD_ID {{ buildFaces.dockerServer }}:{{ buildFaces.dockerPort }}/$JOB_BASE_NAME:$BUILD_ID
+					docker tag $JOB_BASE_NAME:$BUILD_ID {{ buildFaces.dockerServer }}:{{ buildFaces.dockerPort }}/$JOB_BASE_NAME:latest
+					docker push {{ buildFaces.dockerServer }}:{{ buildFaces.dockerPort }}/$JOB_BASE_NAME:$BUILD_ID
+					docker push {{ buildFaces.dockerServer }}:{{ buildFaces.dockerPort }}/$JOB_BASE_NAME:latest
+					docker rmi {{ buildFaces.dockerServer }}:{{ buildFaces.dockerPort }}/$JOB_BASE_NAME:$BUILD_ID || true
+					docker rmi {{ buildFaces.dockerServer }}:{{ buildFaces.dockerPort }}/$JOB_BASE_NAME:latest || true
+					docker rmi $JOB_BASE_NAME:$BUILD_ID || true
+				{{/if}}
+						
+			</command>
+		</hudson.tasks.Shell>
+	</builders>
+	<publishers>
+		<jenkins.plugins.publish__over__ssh.BapSshPublisherPlugin
+			plugin="publish-over-ssh@1.17">
+			<consolePrefix>SSH: </consolePrefix>
+			<delegate>
+				<publishers>
+					<jenkins.plugins.publish__over__ssh.BapSshPublisher>
+						<configName>dockerusr</configName>
+						<verbose>false</verbose>
+						<transfers>
+							<jenkins.plugins.publish__over__ssh.BapSshTransfer>
+								<remoteDirectory></remoteDirectory>
+								<sourceFiles></sourceFiles>
+								<excludes></excludes>
+								<removePrefix></removePrefix>
+								<remoteDirectorySDF>false</remoteDirectorySDF>
+								<flatten>false</flatten>
+								<cleanRemote>false</cleanRemote>
+								<noDefaultExcludes>false</noDefaultExcludes>
+								<makeEmptyDirs>false</makeEmptyDirs>
+								<patternSeparator>[, ]+</patternSeparator>
+								<execCommand>
+{{#if buildFaces.docker}}
+docker login -u $_DOCKERUSER -p $_DOCKERPW $_DOCKERREPO
+docker stop $(echo ${JOB_BASE_NAME} | tr '[:upper:]' '[:lower:]') || true
+docker pull {{ buildFaces.dockerServer }}:{{ buildFaces.dockerPort }}/$(echo ${JOB_BASE_NAME} | tr '[:upper:]' '[:lower:]'):$BUILD_ID
+docker run --rm --name $(echo ${JOB_BASE_NAME} | tr '[:upper:]' '[:lower:]') -d -p {{ buildFaces.dockerPortNumber }}:{{ buildFaces.appPortNumber }} {{ buildFaces.dockerServer }}:{{ buildFaces.dockerPort }}/$(echo ${JOB_BASE_NAME} | tr '[:upper:]' '[:lower:]'):$BUILD_ID
+{{else}}
+									{{#if buildFaces.dockerBuild}} 
+									docker login -u $_DOCKERUSER -p $_DOCKERPW $_DOCKERREPO
+									    docker stop $(echo ${JOB_BASE_NAME} | tr '[:upper:]' '[:lower:]') || true
+										docker pull {{ buildFaces.dockerServer }}:{{ buildFaces.dockerPort }}/$(echo ${JOB_BASE_NAME} | tr '[:upper:]' '[:lower:]'):$BUILD_ID
+										docker run --rm --name $(echo ${JOB_BASE_NAME} | tr '[:upper:]' '[:lower:]') -d -p {{ buildFaces.dockerPortNumber }}:{{ buildFaces.appPortNumber }} {{ buildFaces.dockerServer }}:{{ buildFaces.dockerPort }}/$(echo ${JOB_BASE_NAME} | tr '[:upper:]' '[:lower:]'):$BUILD_ID
+									{{/if}}
+								
+{{/if}}
+								</execCommand>
+								<execTimeout>120000</execTimeout>
+								<usePty>false</usePty>
+								<useAgentForwarding>false</useAgentForwarding>
+							</jenkins.plugins.publish__over__ssh.BapSshTransfer>
+						</transfers>
+						<useWorkspaceInPromotion>false</useWorkspaceInPromotion>
+						<usePromotionTimestamp>false</usePromotionTimestamp>
+            <credentials class="jenkins.plugins.publish_over_ssh.BapSshCredentials">
+              <secretPassphrase>{AQAAABAAAAAQWynmW8oaUojxojkM9swIN6WRWqYBP1Ovgjielp1poD4=}</secretPassphrase>
+              <key></key>
+              <keyPath></keyPath>
+              <username>dockerusr</username>
+            </credentials>
+					</jenkins.plugins.publish__over__ssh.BapSshPublisher>
+				</publishers>
+				<continueOnError>false</continueOnError>
+				<failOnError>false</failOnError>
+				<alwaysPublishFromMaster>false</alwaysPublishFromMaster>
+				<hostConfigurationAccess
+					class="jenkins.plugins.publish_over_ssh.BapSshPublisherPlugin"
+					reference="../.." />
+			</delegate>
+		</jenkins.plugins.publish__over__ssh.BapSshPublisherPlugin>
+	</publishers>
+	<buildWrappers>
+		<org.jfrog.hudson.maven3.ArtifactoryMaven3Configurator
+			plugin="artifactory@2.10.3">
+			<details>
+				<artifactoryName>192.168.84.102</artifactoryName>
+				<artifactoryUrl>
+				{{#if connectTo="jenkins"}}
+					{{ jenkins.artifactoryUrl }}
+				{{/if}}
+				</artifactoryUrl>
+				<deployReleaseRepository>
+					<keyFromText></keyFromText>
+					<keyFromSelect>
+						{{#if connectTo="jenkins"}}
+							{{ jenkins.targetReleaseSynatax }}
+						{{/if}}
+					</keyFromSelect>
+					<dynamicMode>false</dynamicMode>
+				</deployReleaseRepository>
+				<deploySnapshotRepository>
+					<keyFromText></keyFromText>
+					<keyFromSelect>
+						{{#if connectTo="jenkins"}}
+							{{ jenkins.targetSnapshotSyntax }}
+						{{/if}}
+					</keyFromSelect>
+					<dynamicMode>false</dynamicMode>
+				</deploySnapshotRepository>
+				<stagingPlugin />
+			</details>
+			<resolverDetails>
+				<artifactoryName>192.168.84.102</artifactoryName>
+				<artifactoryUrl><!-- http://192.168.84.102:8081/artifactory -->
+					{{#if connectTo="jenkins"}}
+						{{ jenkins.artifactoryUrl }}
+					{{/if}}
+				</artifactoryUrl>
+				<resolveSnapshotRepository>
+					<keyFromText></keyFromText>
+					<keyFromSelect></keyFromSelect>
+					<dynamicMode>false</dynamicMode>
+				</resolveSnapshotRepository>
+				<resolveReleaseRepository>
+					<keyFromText></keyFromText>
+					<keyFromSelect></keyFromSelect>
+					<dynamicMode>false</dynamicMode>
+				</resolveReleaseRepository>
+				<stagingPlugin />
+			</resolverDetails>
+			<deployerCredentialsConfig>
+				<credentials>
+					<username></username>
+					<password></password>
+				</credentials>
+				<credentialsId></credentialsId>
+				<overridingCredentials>false</overridingCredentials>
+				<ignoreCredentialPluginDisabled>false
+				</ignoreCredentialPluginDisabled>
+			</deployerCredentialsConfig>
+			<resolverCredentialsConfig>
+				<credentials>
+					<username></username>
+					<password></password>
+				</credentials>
+				<credentialsId></credentialsId>
+				<overridingCredentials>false</overridingCredentials>
+				<ignoreCredentialPluginDisabled>false
+				</ignoreCredentialPluginDisabled>
+			</resolverCredentialsConfig>
+			<deployArtifacts>true</deployArtifacts>
+			<artifactDeploymentPatterns>
+				<includePatterns></includePatterns>
+				<excludePatterns></excludePatterns>
+			</artifactDeploymentPatterns>
+			<includeEnvVars>false</includeEnvVars>
+			<deployBuildInfo>true</deployBuildInfo>
+			<runChecks>false</runChecks>
+			<violationRecipients></violationRecipients>
+			<includePublishArtifacts>false</includePublishArtifacts>
+			<scopes></scopes>
+			<discardOldBuilds>false</discardOldBuilds>
+			<discardBuildArtifacts>true</discardBuildArtifacts>
+			<matrixParams></matrixParams>
+			<enableIssueTrackerIntegration>false</enableIssueTrackerIntegration>
+			<filterExcludedArtifactsFromBuild>true
+			</filterExcludedArtifactsFromBuild>
+			<enableResolveArtifacts>false</enableResolveArtifacts>
+			<envVarsPatterns>
+				<includePatterns></includePatterns>
+				<excludePatterns>*password*,*secret*,*key*</excludePatterns>
+			</envVarsPatterns>
+			<licenseAutoDiscovery>true</licenseAutoDiscovery>
+			<disableLicenseAutoDiscovery>false</disableLicenseAutoDiscovery>
+			<aggregateBuildIssues>false</aggregateBuildIssues>
+			<recordAllDependencies>false</recordAllDependencies>
+			<blackDuckRunChecks>false</blackDuckRunChecks>
+			<blackDuckAppName></blackDuckAppName>
+			<blackDuckAppVersion></blackDuckAppVersion>
+			<blackDuckReportRecipients></blackDuckReportRecipients>
+			<blackDuckScopes></blackDuckScopes>
+			<blackDuckIncludePublishedArtifacts>false
+			</blackDuckIncludePublishedArtifacts>
+			<autoCreateMissingComponentRequests>true
+			</autoCreateMissingComponentRequests>
+			<autoDiscardStaleComponentRequests>true
+			</autoDiscardStaleComponentRequests>
+			<customBuildName></customBuildName>
+			<overrideBuildName>false</overrideBuildName>
+		</org.jfrog.hudson.maven3.ArtifactoryMaven3Configurator>
+		<org.jenkinsci.plugins.credentialsbinding.impl.SecretBuildWrapper
+			plugin="credentials-binding@1.12">
+			<bindings>
+				<org.jenkinsci.plugins.credentialsbinding.impl.StringBinding>
+					<credentialsId>a7984074-4b5c-4083-bde8-982ca7adf522</credentialsId>
+					<variable>_DOCKERUSER</variable>
+				</org.jenkinsci.plugins.credentialsbinding.impl.StringBinding>
+				<org.jenkinsci.plugins.credentialsbinding.impl.StringBinding>
+					<credentialsId>a7984074-4b5c-4083-bde8-982ca7adf522</credentialsId>
+					<variable>_DOCKERPW</variable>
+				</org.jenkinsci.plugins.credentialsbinding.impl.StringBinding>
+				<org.jenkinsci.plugins.credentialsbinding.impl.StringBinding>
+					<credentialsId>a7984074-4b5c-4083-bde8-982ca7adf522</credentialsId>
+					<variable>_DOCKERREPO1</variable>
+				</org.jenkinsci.plugins.credentialsbinding.impl.StringBinding>
+				<org.jenkinsci.plugins.credentialsbinding.impl.StringBinding>
+					<credentialsId>a7984074-4b5c-4083-bde8-982ca7adf522</credentialsId>
+					<variable>_IP</variable>
+				</org.jenkinsci.plugins.credentialsbinding.impl.StringBinding>
+			</bindings>
+		</org.jenkinsci.plugins.credentialsbinding.impl.SecretBuildWrapper>
+	</buildWrappers>
+</project>
